@@ -278,30 +278,13 @@ button:active{transform:scale(0.97)}
 }
 .mgmt-locked-notice-card i{font-size:18px;flex-shrink:0}
 .overdue-alert-card{
-  display:flex;align-items:center;gap:7px;background:#F3E6E8;border:2px solid #1A1A1A;border-radius:12px;
+  display:flex;align-items:flex-start;gap:7px;background:#F3E6E8;border:2px solid #1A1A1A;border-radius:12px;
   padding:10px 12px;margin-bottom:12px;font-size:12.5px;font-weight:700;color:#4A1620;line-height:1.4;
   box-shadow:0 2px 0 rgba(26,26,26,0.35);
 }
-.overdue-alert-card i{font-size:18px;flex-shrink:0;color:#A32D2D}
-.coop-done-alert-card{
-  background:#FFF3D6;border:2px solid #1A1A1A;border-radius:12px;padding:10px 12px;margin-bottom:12px;
-  box-shadow:0 2px 0 rgba(26,26,26,0.35);
-}
-.coop-done-alert-title{
-  display:flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:#7A4A0A;margin-bottom:7px;
-}
-.coop-done-alert-title i{font-size:16px}
-.coop-done-alert-list{display:flex;flex-direction:column;gap:6px}
-.coop-done-alert-item{
-  display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#FFFFFF;border-radius:8px;
-  padding:6px 9px;font-size:12.5px;border:2px solid #1A1A1A;box-shadow:0 2px 0 rgba(26,26,26,0.3);
-}
-.coop-done-alert-item-name{font-weight:700;color:#26241D}
-.coop-done-alert-item-types{display:flex;gap:4px}
-.coop-done-type-tag{
-  font-size:10.5px;font-weight:700;color:#7A4A0A;background:#FBE7C6;border-radius:5px;padding:2px 6px;
-}
-.coop-done-alert-date{font-size:11.5px;color:#000000;margin-left:auto}
+.overdue-alert-card i{font-size:18px;flex-shrink:0;color:#A32D2D;margin-top:1px}
+.overdue-alert-list{display:flex;flex-direction:column;gap:3px;margin-top:6px}
+.overdue-alert-item{font-size:12px;font-weight:600;background:#FFFFFF;border-radius:6px;padding:5px 8px}
 .coop-active-card{
   background:#EAF3DE;border:2px solid #1A1A1A;border-radius:12px;padding:10px 12px;margin-bottom:12px;
   box-shadow:0 2px 0 rgba(26,26,26,0.35);
@@ -566,8 +549,6 @@ button:active{transform:scale(0.97)}
     </div>
 
     <div id="mgmt-locked-notice" style="display:none"></div>
-
-    <div id="coop-done-alert" style="display:none"></div>
 
     <div class="summary summary-4">
       <div class="sum-card"><div class="sum-label">전체 항목</div><div class="sum-val" id="s-total">0</div></div>
@@ -1283,44 +1264,6 @@ function toggleDoneStatus(sec,item){
 }
 function toggleSectionCollapse(name){ collapsedSections[name]=!collapsedSections[name]; renderChecklist(); }
 
-function renderCoopDoneAlert(){
-  const box = document.getElementById('coop-done-alert');
-  if(!currentData || !currentData.checklist){ box.style.display='none'; return; }
-  const checklist = currentData.checklist;
-  const items = Object.keys(checklist)
-    .filter(k => {
-      const e = checklist[k];
-      if(!e || !e.done) return false;
-      return e.coop && (e.coop.건축 || e.coop.기계 || e.coop.전기);
-    })
-    .map(k => {
-      const idx = k.indexOf('-');
-      const sec = k.slice(0, idx);
-      const item = k.slice(idx+1);
-      const e = checklist[k];
-      const types = COOP_TYPES.filter(t => e.coop[t]);
-      return { sec, item, types, doneDate: e.doneDate || '' };
-    });
-
-  if(items.length === 0){ box.style.display='none'; box.innerHTML=''; return; }
-
-  box.style.display = 'block';
-  box.innerHTML = `
-    <div class="coop-done-alert-card">
-      <div class="coop-done-alert-title"><i class="ti ti-bell-ringing"></i> 타공정협조 완료 항목 — 보수요청 업체 확인 필요</div>
-      <div class="coop-done-alert-list">
-        ${items.map(it => `
-          <div class="coop-done-alert-item">
-            <span class="coop-done-alert-item-name">${escapeHtml(it.item)}</span>
-            <span class="coop-done-alert-item-types">${it.types.map(t=>`<span class="coop-done-type-tag">${t}</span>`).join('')}</span>
-            ${it.doneDate ? `<span class="coop-done-alert-date">완료일 : ${escapeHtml(it.doneDate)}</span>` : ''}
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `;
-}
-
 function getItemCategoryTag(item, sec){
   if(MECHANICAL_ITEMS.has(item)) return '기계공사';
   if(ELECTRICAL_ITEMS.has(item)) return '전기공사';
@@ -1471,7 +1414,6 @@ function renderChecklist(){
   }).join('');
 
   updateSummary();
-  renderCoopDoneAlert();
   renderCoopActiveList();
   setupCustomScrollbar();
   updateMgmtLockButton();
@@ -1534,30 +1476,37 @@ function closeHistoryModal(){
 
 function renderOverdueAlert(){
   const box = document.getElementById('overdue-alert');
-  if(!box || !currentData) return;
-
-  const moveoutDate = currentData.moveoutDate;
-  if(!moveoutDate){ box.style.display='none'; box.innerHTML=''; return; }
-
-  const { ngCount, doneCount } = computeUnitStats(currentData);
-  const hasUnfinished = ngCount > 0 && doneCount < ngCount;
-  if(!hasUnfinished){ box.style.display='none'; box.innerHTML=''; return; }
-
-  const moveout = new Date(moveoutDate + 'T00:00:00');
-  if(isNaN(moveout.getTime())){ box.style.display='none'; box.innerHTML=''; return; }
+  if(!box || !currentData || !currentData.checklist) return;
 
   const today = new Date();
   today.setHours(0,0,0,0);
-  const daysSinceMoveout = Math.round((today - moveout) / (1000*60*60*24));
 
-  if(daysSinceMoveout < 14){ box.style.display='none'; box.innerHTML=''; return; }
+  const overdueItems = [];
+  Object.keys(currentData.checklist).forEach(k => {
+    const e = currentData.checklist[k];
+    if(!e || e.done || !e.progress || !e.progressDate) return;
+    const startDate = new Date(e.progressDate + 'T00:00:00');
+    if(isNaN(startDate.getTime())) return;
+    const daysSinceStart = Math.round((today - startDate) / (1000*60*60*24));
+    if(daysSinceStart >= 14){
+      const idx = k.indexOf('-');
+      const item = k.slice(idx+1);
+      overdueItems.push({ item, progressDate: e.progressDate, overdueDays: daysSinceStart - 14 });
+    }
+  });
 
-  const overdueDays = daysSinceMoveout - 14;
+  if(overdueItems.length === 0){ box.style.display='none'; box.innerHTML=''; return; }
+
   box.style.display = 'block';
   box.innerHTML = `
     <div class="overdue-alert-card">
       <i class="ti ti-alert-triangle"></i>
-      퇴거일(${escapeHtml(moveoutDate)})로부터 14일이 지났습니다. 미완료 항목이 ${ngCount - doneCount}건 남아있습니다. (지연 ${overdueDays}일)
+      <div>
+        보수진행(업체확인) 시작일로부터 14일이 지난 항목이 ${overdueItems.length}건 있습니다.
+        <div class="overdue-alert-list">
+          ${overdueItems.map(it => `<div class="overdue-alert-item">${escapeHtml(it.item)} (시작일 : ${escapeHtml(it.progressDate)}, 지연 ${it.overdueDays}일)</div>`).join('')}
+        </div>
+      </div>
     </div>
   `;
 }
