@@ -27,8 +27,8 @@ body{
 }
 input,textarea,button{font-family:inherit}
 body, input, textarea{font-weight:900}
-button{transition:transform 0.1s ease, background 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease}
-button:active{transform:scale(0.97)}
+button{transition:transform 0.08s ease, background 0.1s ease, box-shadow 0.08s ease, filter 0.1s ease}
+button:active{transform:scale(0.94);filter:brightness(0.9)}
 
 .topbar{
   background:#FFFFFF;border-bottom:1px solid #E4E1D6;
@@ -474,6 +474,7 @@ button:active{transform:scale(0.97)}
   background:#A32D2D;color:#fff;border:none;border-radius:10px;
   font-size:14px;font-weight:600;cursor:pointer;
 }
+.delete-btn:active{background:#7A2020}
 .close-save-btn{
   display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:13px;
   background:#7A2E3A;color:#fff;border:none;border-radius:10px;
@@ -1003,7 +1004,7 @@ function renderUnitCard(u, displayNumber){
           <div class="unit-name-row">
             <div class="unit-name-box unit-name-clickable" onclick="openUnit('${u.id}')" style="background:${complexColor.bg};color:${complexColor.fg}">
               <img class="unit-name-box-logo" src="${LH_ICON_B64}" alt="LH">
-              <span class="unit-name-text" style="color:${complexColor.fg}">(${displayNumber}) ${escapeHtml(u.data.unitLabel||'(동/호 미입력)')}</span>
+              <span class="unit-name-text" style="color:${complexColor.fg}">(${displayNumber}) ${u.data.complex ? escapeHtml(u.data.complex) + ' ' : ''}${escapeHtml(u.data.unitLabel||'(동/호 미입력)')}</span>
             </div>
           </div>
           <div class="unit-counts-row"><span class="unit-square-box summary-ng unit-counts-clickable" onclick="openUnitNgListModal('${u.id}')"><span class="unit-square-label">접수항목</span><span class="unit-square-num">${ngCount}</span></span>${progressRow}${doneRow}</div>
