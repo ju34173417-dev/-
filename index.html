@@ -70,6 +70,7 @@ button:active{transform:scale(0.97)}
 .complex-group-title{
   font-size:16px;font-weight:800;padding:7px 14px;position:relative;overflow:hidden;
 }
+.complex-group-hint{font-size:10.5px;font-weight:500;color:#000000;opacity:0.8}
 .complex-group-title::before{
   content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background:linear-gradient(120deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 22%, rgba(50,40,30,0.06) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.2) 100%);
@@ -890,6 +891,12 @@ function computeUnitStats(data){
 function escapeHtml(str){
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
+function getProgressColor(pct){
+  if(pct < 30) return '#A32D2D';   // 빨강
+  if(pct < 50) return '#1C5FA8';   // 파랑
+  if(pct < 80) return '#B5650F';   // 주황
+  return '#1F6B3A';                // 초록
+}
 
 const LH_ICON_B64 = 'data:image/jpeg;base64,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';
 const COMPLEX_COLOR_PALETTE = [
@@ -960,7 +967,7 @@ function renderUnitList(){
     complexCounter++;
     const groupColor = getComplexColor(group.complex);
     return `<div class="complex-group">
-      <div class="complex-group-title" style="background:${groupColor.bg};color:#0B3D7A;font-size:16px">(${complexCounter}) ${escapeHtml(group.complex)}</div>
+      <div class="complex-group-title" style="background:${groupColor.bg};color:#000000;font-size:16px">(${complexCounter}) ${escapeHtml(group.complex)} <span class="complex-group-hint">(동/호수 클릭)</span></div>
       <div class="complex-group-body">${cardsHtml}</div>
     </div>`;
   }).join('');
@@ -995,10 +1002,14 @@ function renderUnitCard(u, displayNumber){
             </div>
           </div>
           <div class="unit-counts-row"><span class="unit-square-box summary-ng unit-counts-clickable" onclick="openUnitNgListModal('${u.id}')"><span class="unit-square-label">접수항목</span><span class="unit-square-num">${ngCount}</span></span>${progressRow}${doneRow}</div>
-          ${ngCount > 0 ? `<div class="unit-self-progress-row">
-            <div class="unit-self-progress-label">진행률 ${Math.round((doneCount/ngCount)*100)}%</div>
-            <div class="unit-self-progress-bar"><div class="unit-self-progress-fill" style="width:${Math.round((doneCount/ngCount)*100)}%"></div></div>
-          </div>` : ''}
+          ${ngCount > 0 ? (() => {
+            const pct = Math.round((doneCount/ngCount)*100);
+            const pcolor = getProgressColor(pct);
+            return `<div class="unit-self-progress-row">
+            <div class="unit-self-progress-label" style="color:${pcolor}">진행률 ${pct}%</div>
+            <div class="unit-self-progress-bar"><div class="unit-self-progress-fill" style="width:${pct}%;background:${pcolor}"></div></div>
+          </div>`;
+          })() : ''}
           ${(u.data.moveoutDate || u.data.inspectDate) ? `<div class="unit-date-row">
             ${u.data.inspectDate ? `<div class="unit-moveout-row"><i class="ti ti-clipboard-check"></i> 점검일 : ${escapeHtml(u.data.inspectDate)}</div>` : ''}
             ${u.data.moveoutDate ? `<div class="unit-moveout-row"><i class="ti ti-calendar-event"></i> 퇴거일 : ${escapeHtml(u.data.moveoutDate)}</div>` : ''}
