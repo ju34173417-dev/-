@@ -898,9 +898,10 @@ function escapeHtml(str){
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 function getProgressColor(pct){
-  if(pct < 30) return '#A32D2D';   // 빨강
+  if(pct < 20) return '#A32D2D';   // 빨강
+  if(pct < 30) return '#8A6D0A';   // 노랑(진한 톤)
   if(pct < 50) return '#1C5FA8';   // 파랑
-  if(pct < 80) return '#B5650F';   // 주황
+  if(pct < 80) return '#1B2A6B';   // 남색
   return '#1F6B3A';                // 초록
 }
 
