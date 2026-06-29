@@ -70,7 +70,11 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .complex-group-title{
   font-size:16px;font-weight:800;padding:7px 14px;position:relative;overflow:hidden;
 }
-.complex-group-hint{font-size:10.5px;font-weight:500;color:#000000;opacity:0.8}
+.complex-group-hint{
+  font-size:12px;font-weight:800;color:#4A1620;opacity:1;
+  background:#FFFFFF;padding:2px 7px;border-radius:6px;border:1.5px solid #1A1A1A;
+  margin-left:2px;display:inline-block;
+}
 .complex-group-title::before{
   content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
   background:linear-gradient(120deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 22%, rgba(50,40,30,0.06) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.2) 100%);
@@ -82,15 +86,15 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .complex-group-body .unit-card:active{box-shadow:0 1px 0 #1A1A1A}
 .unit-card{
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 22%, rgba(0,150,180,0.22) 42%, rgba(255,255,255,0) 58%, rgba(0,120,170,0.18) 75%, rgba(255,255,255,0.25) 100%),
-    linear-gradient(25deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 18%, rgba(0,140,175,0.2) 35%, rgba(255,255,255,0) 55%),
-    linear-gradient(160deg, #5FCBE0 0%, #2E9FD6 55%, #1C7FC4 100%);
+    linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 25%, rgba(120,100,70,0.08) 40%, rgba(255,255,255,0) 55%, rgba(120,100,70,0.06) 70%, rgba(255,255,255,0.3) 100%),
+    linear-gradient(25deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 15%, rgba(90,75,55,0.07) 30%, rgba(255,255,255,0) 50%),
+    #F2E9D5;
   border:2px solid #1A1A1A;border-radius:14px;
   padding:9px 14px;display:flex;align-items:flex-start;justify-content:space-between;
   box-shadow:0 3px 0 rgba(26,26,26,0.35);
   transition:background 0.15s ease, box-shadow 0.12s ease, transform 0.12s ease;
 }
-.unit-card:active{background:#2A8FC2;box-shadow:0 1.5px 0 rgba(26,26,26,0.3);transform:translateY(2px)}
+.unit-card:active{background:#EAE0C5;box-shadow:0 1.5px 0 rgba(26,26,26,0.3);transform:translateY(2px)}
 .unit-main{display:flex;align-items:flex-start;gap:13px;min-width:0;flex:1}
 .unit-icon{
   width:38px;height:38px;border-radius:10px;background:#F3E6E8;
@@ -100,6 +104,7 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .unit-text{min-width:0;flex:1}
 .unit-name{font-size:17px;font-weight:700;display:flex;align-items:center;gap:7px;min-width:0;flex-wrap:wrap}
 .unit-name-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.unit-name-divider{width:85%;max-width:230px;height:2px;margin:2px auto 0;opacity:0.3;border-radius:2px}
 .unit-name-box{
   width:260px;max-width:99%;height:46px;border-radius:14px;background:#F0E4C8;color:#6B4A1A;
   border:2px solid #1A1A1A;box-shadow:0 3px 0 rgba(26,26,26,0.35);
@@ -151,6 +156,13 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
   background:#F1EFE8;border:2px solid #1A1A1A;border-radius:7px;padding:3px 7px;box-shadow:0 2px 0 rgba(26,26,26,0.3);
 }
 .unit-moveout-row i{font-size:13px;color:#26241D}
+.unit-overdue-warning-box{
+  display:flex;align-items:flex-start;gap:6px;margin-top:8px;max-width:92%;margin-left:auto;margin-right:auto;
+  background:#F1EFE8;border:2px solid #1A1A1A;border-radius:8px;padding:6px 9px;
+  box-shadow:0 2px 0 rgba(26,26,26,0.3);
+}
+.unit-overdue-warning-box i{font-size:14px;color:#26241D;flex-shrink:0;margin-top:1px}
+.unit-overdue-warning-box span{font-size:11px;font-weight:700;color:#26241D;line-height:1.4}
 .unit-counts-row .unit-change-summary{margin-top:0}
 .unit-moveout{font-size:13px;font-weight:600;color:#A32D2D;flex-shrink:0;white-space:nowrap}
 .unit-days-tag{display:inline-block;font-size:12.5px;font-weight:700;color:#0B6E5C;background:#DEF3EE;border-radius:5px;padding:2px 7px;margin-left:2px}
@@ -176,7 +188,7 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .unit-change-summary i{font-size:14px}
 .unit-square-box{
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
-  flex:1;min-width:66px;max-width:84px;height:50px;border-radius:12px;cursor:pointer;
+  flex:1;min-width:66px;max-width:84px;height:60px;border-radius:12px;cursor:pointer;
   border:2px solid #1A1A1A;box-shadow:0 2px 0 rgba(26,26,26,0.3);
   position:relative;overflow:hidden;
   transition:box-shadow 0.1s ease, transform 0.1s ease;
@@ -187,13 +199,14 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 }
 .unit-square-box > *{position:relative;z-index:1}
 .unit-square-box:active{box-shadow:0 1px 0 rgba(26,26,26,0.25);transform:translateY(2px)}
-.unit-square-box.summary-progress{color:#5E3F0A;background:#F0E4C8}
-.unit-square-box.summary-done{color:#1F3A24;background:#DDE5DC}
-.unit-square-box.summary-ng{color:#2E0D13;background:#F3E6E8}
+.unit-square-box.summary-progress{color:#0C547C;background:#D6EEFB}
+.unit-square-box.summary-done{color:#7A5E0A;background:#F5E6A8}
+.unit-square-box.summary-ng{color:#5E222B;background:#E8C9CD}
 .unit-square-box i{font-size:15px;line-height:1;display:block}
 .unit-square-emoji{font-size:15px;line-height:1;display:block}
 .unit-square-label{font-size:11px;font-weight:700;line-height:1.3}
 .unit-square-num{font-size:20px;font-weight:900;line-height:1.1;text-shadow:0 0.5px 0 rgba(0,0,0,0.15)}
+.unit-square-sub{font-size:8.5px;font-weight:700;line-height:1.3;opacity:0.85;white-space:nowrap}
 .unit-meta{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .unit-progress{font-size:11.5px;color:#000000;text-align:right;line-height:1.4}
 .unit-progress b{color:#7A4A0A}
@@ -238,11 +251,19 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .modal-field-row{display:flex;gap:10px;margin-bottom:0}
 .modal-field-row .modal-field{flex:1;margin-bottom:12px}
 .modal-field label{display:block;font-size:12.5px;color:#000000;margin-bottom:5px;font-weight:600}
-.modal-field input{
+.modal-field input, .modal-field select{
   width:100%;padding:11px 12px;font-size:14px;border:1px solid #D2CDBC;
   border-radius:8px;outline:none;color:#26241D;background:#FAFAF7;
 }
-.modal-field input:focus{border-color:#7A2E3A}
+.modal-field input:focus, .modal-field select:focus{border-color:#7A2E3A}
+.complex-options-list{
+  position:absolute;top:100%;left:0;right:0;margin-top:2px;background:#FFFFFF;
+  border:1.5px solid #1A1A1A;border-radius:8px;max-height:180px;overflow-y:auto;
+  z-index:50;box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+.complex-option-item{padding:10px 12px;font-size:13.5px;color:#000;cursor:pointer;border-bottom:1px solid #F1EFE8}
+.complex-option-item:last-child{border-bottom:none}
+.complex-option-item:active{background:#F1EFE8}
 .modal-error{font-size:12px;color:#A32D2D;margin-top:4px;display:none}
 .modal-actions{display:flex;gap:8px;margin-top:18px}
 .modal-actions button{
@@ -342,6 +363,7 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .sum-card-clickable:active{background:#E4E1D6}
 .sum-label{font-size:12.5px;font-weight:700;color:#3D3B33;margin-bottom:4px}
 .sum-val{font-size:22px;font-weight:800}
+.sum-sub{font-size:12px;font-weight:700;color:#000000;margin-top:4px;white-space:nowrap}
 
 .section{margin-bottom:14px;border:1px solid #E4E1D6;border-radius:14px;background:#FFFFFF}
 .sec-head{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:#F4F2EA;font-size:13px;font-weight:600;cursor:pointer;border-radius:14px 14px 0 0}
@@ -353,12 +375,13 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .sec-head.collapsed .sec-chevron{transform:rotate(-90deg)}
 
 .item-row{
-  display:grid;grid-template-columns:124px 90px 90px 70px 1fr 90px 132px 95px;
+  display:grid;grid-template-columns:124px 90px 70px 1fr 90px 132px 95px;
   gap:0;border-top:1px solid #E4E1D6;font-size:12px;align-items:stretch;
 }
 .item-row:first-of-type{border-top:none}
 .item-name{padding:9px 10px;color:#26241D;display:flex;align-items:center;gap:6px;font-size:16px;font-weight:500;flex-wrap:wrap}
 .mech-tag{font-size:10px;font-weight:700;color:#0C447C;background:#E6F1FB;border-radius:5px;padding:2px 6px;white-space:nowrap}
+.vendor-confirm-warning{font-size:11px;font-weight:900;color:#FFFFFF;background:#A32D2D;border-radius:5px;padding:2px 7px;white-space:nowrap;margin-left:2px}
 .elec-tag{font-size:10px;font-weight:700;color:#854F0B;background:#FAEEDA;border-radius:5px;padding:2px 6px;white-space:nowrap}
 .arch-tag{font-size:10px;font-weight:700;color:#27500A;background:#EAF3DE;border-radius:5px;padding:2px 6px;white-space:nowrap}
 
@@ -414,12 +437,12 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .done-no{background:#E7E2D6;color:#3D3B33}
 
 .col-header{
-  display:grid;grid-template-columns:124px 90px 90px 70px 1fr 90px 132px 95px;
+  display:grid;grid-template-columns:124px 90px 70px 1fr 90px 132px 95px;
   gap:0;border-top:1px solid #E4E1D6;font-size:10.5px;font-weight:600;
 }
 .col-header div{padding:5px 6px;text-align:center;line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .col-header div:first-child{background:#F4F2EA;color:#26241D;font-size:14px}
-.col-header div:nth-child(5){font-size:14px}
+.col-header div:nth-child(4){font-size:14px}
 .col-header .h-mgmt{background:#F3E6E8;color:#5E222B;border-left:1px solid #E0C9CD}
 .col-header .h-note{background:#F4F2EA;color:#000000;border-left:1px solid #E4E1D6}
 .col-header .h-vendor{background:#F3E2C4;color:#7A4A0A;border-left:1px solid #E0C68F}
@@ -439,7 +462,7 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .note-area textarea:focus{border-color:#7A2E3A}
 
 .scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
-.scroll-x .item-row,.scroll-x .col-header{min-width:843px}
+.scroll-x .item-row,.scroll-x .col-header{min-width:753px}
 .scroll-hint{font-size:11px;color:#000000;text-align:center;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:4px}
 .custom-scrollbar-track{
   position:relative;height:10px;background:#E4E1D6;border-radius:99px;margin:8px 0 16px;cursor:pointer;display:block;
@@ -551,8 +574,6 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
       </div>
     </div>
 
-    <div id="overdue-alert" style="display:none"></div>
-
     <div class="legend">
       <div class="legend-item"><span class="legend-dot" style="background:#7A2E3A"></span> 관리소 확인 항목</div>
       <div class="legend-item"><span class="legend-dot" style="background:#B5650F"></span> 유지보수업체 확인 항목</div>
@@ -562,9 +583,9 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 
     <div class="summary summary-4">
       <div class="sum-card"><div class="sum-label">전체 항목</div><div class="sum-val" id="s-total">0</div></div>
-      <div class="sum-card sum-card-clickable" onclick="openNgListModal()"><div class="sum-label">접수 항목</div><div class="sum-val" id="s-ng" style="color:#A32D2D">0</div></div>
-      <div class="sum-card sum-card-clickable" onclick="openProgressListModal()"><div class="sum-label">보수 중</div><div class="sum-val" id="s-progress" style="color:#B5650F">0</div></div>
-      <div class="sum-card sum-card-clickable" onclick="openDoneListModal()"><div class="sum-label">보수 완료</div><div class="sum-val" id="s-done" style="color:#7A4A0A">0</div></div>
+      <div class="sum-card sum-card-clickable" onclick="openNgListModal()"><div class="sum-label">접수 항목</div><div class="sum-val" id="s-ng" style="color:#A32D2D">0</div><div class="sum-sub" id="s-ng-sub"></div></div>
+      <div class="sum-card sum-card-clickable" onclick="openProgressListModal()"><div class="sum-label">보수 중</div><div class="sum-val" id="s-progress" style="color:#B5650F">0</div><div class="sum-sub" id="s-progress-sub"></div></div>
+      <div class="sum-card sum-card-clickable" onclick="openDoneListModal()"><div class="sum-label">보수 완료</div><div class="sum-val" id="s-done" style="color:#7A4A0A">0</div><div class="sum-sub" id="s-done-sub"></div></div>
     </div>
 
     <div id="coop-active-list" style="display:none"></div>
@@ -593,12 +614,14 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 </div>
 
 <div class="modal-overlay" id="new-unit-modal">
-  <div class="modal-card">
+  <div class="modal-card center-modal">
     <h3>새 세대 점검표 등록</h3>
     <div class="modal-field-row">
-      <div class="modal-field">
+      <div class="modal-field" style="position:relative">
         <label>단지명</label>
-        <input type="text" id="nu-complex" placeholder="○○마을 ○○단지">
+        <input type="text" id="nu-complex" placeholder="단지명을 선택하거나 입력해주세요" autocomplete="off"
+          onfocus="showComplexOptions()" onclick="showComplexOptions()" oninput="filterComplexOptions()" onblur="setTimeout(hideComplexOptions, 150)">
+        <div id="complex-options-list" class="complex-options-list" style="display:none"></div>
       </div>
       <div class="modal-field">
         <label>동/호 *</label>
@@ -820,7 +843,7 @@ function emptyChecklistState(){
   return state;
 }
 function emptyUnitData(unitLabel, tenant, complex){
-  return {unitLabel:unitLabel||'', complex: (complex!==undefined ? complex : getComplexName()), tenant:tenant||'', contractDate:'', moveinDate:'', inspectDate:'', moveoutDate:'', memo:'', mgmtLocked:false, checklist:emptyChecklistState(), updatedAt:Date.now()};
+  return {unitLabel:unitLabel||'', complex: (complex!==undefined ? complex : getComplexName()), tenant:tenant||'', contractDate:'', moveinDate:'', inspectDate:'', moveoutDate:'', memo:'', mgmtLocked:false, fullyDoneSince:null, createdAt:Date.now(), checklist:emptyChecklistState(), updatedAt:Date.now()};
 }
 
 async function refreshUnitsFromStorage(){
@@ -845,7 +868,42 @@ async function refreshUnitsFromStorage(){
     units.sort((a,b)=>(b.data.updatedAt||0)-(a.data.updatedAt||0));
     allUnits = units;
   }
+  await processFullyDoneAutoDelete();
   renderUnitList();
+}
+
+async function processFullyDoneAutoDelete(){
+  const ONE_WEEK = 7*24*60*60*1000;
+  const now = Date.now();
+  const toDelete = [];
+
+  allUnits.forEach(u => {
+    const entries = Object.values(u.data.checklist || {});
+    const ngCount = entries.filter(e=>e.ng || e.vendorConfirm).length;
+    const doneCount = entries.filter(e=>(e.ng||e.vendorConfirm)&&e.done).length;
+    const isFullyDone = ngCount > 0 && doneCount >= ngCount;
+
+    if(isFullyDone){
+      if(!u.data.fullyDoneSince){
+        u.data.fullyDoneSince = now;
+        saveUnitDataLocal(u.id, u.data);
+        saveUnitToServer(u.id, u.data);
+      } else if(now - u.data.fullyDoneSince >= ONE_WEEK){
+        toDelete.push(u.id);
+      }
+    } else if(u.data.fullyDoneSince){
+      u.data.fullyDoneSince = null;
+      saveUnitDataLocal(u.id, u.data);
+      saveUnitToServer(u.id, u.data);
+    }
+  });
+
+  if(toDelete.length > 0){
+    for(const id of toDelete){
+      await deleteUnitData(id);
+    }
+    allUnits = allUnits.filter(u => !toDelete.includes(u.id));
+  }
 }
 
 function startAutoRefresh(){
@@ -862,6 +920,8 @@ function computeUnitStats(data){
   const checklist = data.checklist||{};
   const entries = Object.values(checklist);
   const ngCount = entries.filter(e=>e.ng || e.vendorConfirm).length;
+  const mgmtNgCount = entries.filter(e=>e.ng).length;
+  const vendorNgCount = entries.filter(e=>e.vendorConfirm).length;
   const doneCount = entries.filter(e=>(e.ng||e.vendorConfirm)&&e.done).length;
   const hasVendorProgress = (e) => {
     if(!e || e.done) return false;
@@ -875,6 +935,26 @@ function computeUnitStats(data){
   const vendorDoneItems = Object.keys(checklist)
     .filter(k => checklist[k].done)
     .map(k => k.split('-').slice(1).join('-'));
+
+  // 보수중/완료 항목의 공정(건축/기계/전기)별 건수
+  const progressByType = {건축:0, 기계:0, 전기:0};
+  Object.keys(checklist).forEach(k => {
+    const e = checklist[k];
+    if(!hasVendorProgress(e)) return;
+    const item = k.split('-').slice(1).join('-');
+    if(MECHANICAL_ITEMS.has(item)) progressByType.기계++;
+    else if(ELECTRICAL_ITEMS.has(item)) progressByType.전기++;
+    else progressByType.건축++;
+  });
+  const doneByType = {건축:0, 기계:0, 전기:0};
+  Object.keys(checklist).forEach(k => {
+    const e = checklist[k];
+    if(!e.done) return;
+    const item = k.split('-').slice(1).join('-');
+    if(MECHANICAL_ITEMS.has(item)) doneByType.기계++;
+    else if(ELECTRICAL_ITEMS.has(item)) doneByType.전기++;
+    else doneByType.건축++;
+  });
 
   // 가장 늦은(최신) 완료일과 퇴거일 사이의 일수 차이
   let daysToMoveout = null;
@@ -891,7 +971,7 @@ function computeUnitStats(data){
     }
   }
 
-  return {ngCount, doneCount, vendorProgressItems, vendorDoneItems, daysToMoveout, latestDoneDate};
+  return {ngCount, mgmtNgCount, vendorNgCount, doneCount, vendorProgressItems, vendorDoneItems, progressByType, doneByType, daysToMoveout, latestDoneDate};
 }
 
 function escapeHtml(str){
@@ -906,6 +986,37 @@ function getProgressColor(pct){
 }
 
 const LH_ICON_B64 = 'data:image/jpeg;base64,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';
+const PRESET_COMPLEX_NAMES = ['서울대방1','서울우면','서울월계1','서울중계3','서울중계9','서울번동3','서울번동5','서울등촌7','서울등촌9','서울등촌11','서울등촌1','서울등촌4'];
+
+function showComplexOptions(){
+  const list = document.getElementById('complex-options-list');
+  list.innerHTML = PRESET_COMPLEX_NAMES.map(name => `<div class="complex-option-item" onmousedown="selectComplexOption('${name}')">${escapeHtml(name)}</div>`).join('');
+  list.style.display = 'block';
+}
+function filterComplexOptions(){
+  const input = document.getElementById('nu-complex');
+  const list = document.getElementById('complex-options-list');
+  const query = (input.value || '').trim();
+  const filtered = query
+    ? PRESET_COMPLEX_NAMES.filter(name => name.includes(query))
+    : PRESET_COMPLEX_NAMES;
+
+  if(filtered.length === 0){
+    list.style.display = 'none';
+    list.innerHTML = '';
+    return;
+  }
+  list.innerHTML = filtered.map(name => `<div class="complex-option-item" onmousedown="selectComplexOption('${name}')">${escapeHtml(name)}</div>`).join('');
+  list.style.display = 'block';
+}
+function selectComplexOption(name){
+  document.getElementById('nu-complex').value = name;
+  hideComplexOptions();
+}
+function hideComplexOptions(){
+  document.getElementById('complex-options-list').style.display = 'none';
+}
+
 const COMPLEX_COLOR_PALETTE = [
   {bg:'#F0E4C8', fg:'#6B4A1A'}, // 샴페인 골드
   {bg:'#E8D5C4', fg:'#7A3F2A'}, // 카멜 브라운
@@ -919,6 +1030,9 @@ const COMPLEX_COLOR_PALETTE = [
 function getComplexColor(complexName){
   const name = (complexName || '').trim();
   if(!name) return COMPLEX_COLOR_PALETTE[0];
+  if(name === '번동3단지' || name === '서울번동3'){
+    return {bg:'#DDE5DC', fg:'#3D5A42'}; // 세이지 그린 고정
+  }
   let hash = 0;
   for(let i=0; i<name.length; i++){
     hash = (hash * 31 + name.charCodeAt(i)) >>> 0;
@@ -987,6 +1101,29 @@ function renderUnitCard(u, displayNumber){
     const badge = totalChanges > 0
       ? `<span class="notify-badge">${totalChanges}</span>`
       : '';
+
+    // 점검일로부터 14일 경과 + 업체확인 미체크 항목 계산
+    const overdueWarningItems = [];
+    if(u.data.inspectDate){
+      const inspectDate = new Date(u.data.inspectDate + 'T00:00:00');
+      if(!isNaN(inspectDate.getTime())){
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const daysSinceInspect = Math.floor((today - inspectDate) / (1000*60*60*24));
+        if(daysSinceInspect >= 14){
+          Object.keys(u.data.checklist || {}).forEach(k => {
+            const e = u.data.checklist[k];
+            if(!e) return;
+            const isReceived = e.ng || e.vendorConfirm;
+            if(isReceived && !e.vendorConfirm && !e.done){
+              const item = k.split('-').slice(1).join('-');
+              overdueWarningItems.push(item);
+            }
+          });
+        }
+      }
+    }
+
     const progressRow = vendorProgressItems.length > 0
       ? `<div class="unit-square-box summary-progress unit-counts-clickable" onclick="event.stopPropagation(); openUnitProgressListModal('${u.id}')"><span class="unit-square-label">보수중</span><span class="unit-square-num">${vendorProgressItems.length}</span></div>`
       : '';
@@ -1006,6 +1143,7 @@ function renderUnitCard(u, displayNumber){
             <div class="unit-name-box unit-name-clickable" onclick="openUnit('${u.id}')" style="background:${complexColor.bg};color:${complexColor.fg}">
               <img class="unit-name-box-logo" src="${LH_ICON_B64}" alt="LH">
               <span class="unit-name-text" style="color:${complexColor.fg}">(${displayNumber}) ${u.data.complex ? escapeHtml(u.data.complex) + ' ' : ''}${escapeHtml(u.data.unitLabel||'(동/호 미입력)')}</span>
+              <div class="unit-name-divider" style="background:${complexColor.fg}"></div>
             </div>
           </div>
           <div class="unit-counts-row"><span class="unit-square-box summary-ng unit-counts-clickable" onclick="openUnitNgListModal('${u.id}')"><span class="unit-square-label">접수항목</span><span class="unit-square-num">${ngCount}</span></span>${progressRow}${doneRow}</div>
@@ -1020,6 +1158,10 @@ function renderUnitCard(u, displayNumber){
           ${(u.data.moveoutDate || u.data.inspectDate) ? `<div class="unit-date-row">
             ${u.data.inspectDate ? `<div class="unit-moveout-row"><i class="ti ti-clipboard-check"></i> 점검일 : ${escapeHtml(u.data.inspectDate)}</div>` : ''}
             ${u.data.moveoutDate ? `<div class="unit-moveout-row"><i class="ti ti-calendar-event"></i> 퇴거일 : ${escapeHtml(u.data.moveoutDate)}</div>` : ''}
+          </div>` : ''}
+          ${overdueWarningItems.length > 0 ? `<div class="unit-overdue-warning-box">
+            <i class="ti ti-alert-triangle"></i>
+            <span>업체확인 지연(14일↑) : ${overdueWarningItems.map(it=>escapeHtml(it)).join(', ')}</span>
           </div>` : ''}
         </div>
       </div>
@@ -1041,6 +1183,7 @@ function openNewUnitModal(){
 function closeNewUnitModal(){
   document.getElementById('new-unit-modal').classList.remove('show');
 }
+
 async function createNewUnit(){
   const errEl = document.getElementById('nu-error');
   const btn = document.getElementById('nu-confirm-btn');
@@ -1106,6 +1249,7 @@ async function openUnit(unitId){
   currentUnitId = unitId;
   currentData = data;
   if(!currentData.checklist) currentData.checklist = emptyChecklistState();
+  if(!currentData.createdAt) currentData.createdAt = currentData.updatedAt || Date.now();
   collapsedSections = {};
   fillFormFromData();
   renderChecklist();
@@ -1348,17 +1492,25 @@ function renderChecklist(){
     const total = sec.items.length;
     const checkedCount = sec.items.filter(i=>{const e=currentData.checklist[`${sec.name}-${i}`];return e&&(e.ok||e.ng);}).length;
     const isCollapsed = !!collapsedSections[sec.name];
+    let registerOverdue = false;
+    if(currentData.inspectDate){
+      const inspectDate = new Date(currentData.inspectDate + 'T00:00:00');
+      if(!isNaN(inspectDate.getTime())){
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const daysSinceInspect = Math.floor((today - inspectDate) / (1000*60*60*24));
+        registerOverdue = daysSinceInspect >= 14;
+      }
+    }
     const rows = sec.items.map(item=>{
       const e = getEntry(sec.name,item);
       const disabled = (!e.ng && !e.vendorConfirm) || e.done;
       const mgmtLocked = !!currentData.mgmtLocked;
       const noteVal = escapeHtml(e.note||'');
+      const isReceived = e.ng || e.vendorConfirm;
+      const needsVendorConfirmAlert = registerOverdue && isReceived && !e.vendorConfirm && !e.done;
       return `<div class="item-row">
-        <div class="item-name">${escapeHtml(item)}${MECHANICAL_ITEMS.has(item) ? '<span class="mech-tag">(기계공사)</span>' : ''}${ELECTRICAL_ITEMS.has(item) ? '<span class="elec-tag">(전기공사)</span>' : ''}${(sec.name !== '빌트인 (해당 시)' && !MECHANICAL_ITEMS.has(item) && !ELECTRICAL_ITEMS.has(item)) ? '<span class="arch-tag">(건축공사)</span>' : ''}</div>
-        <div class="item-check zone-mgmt">
-          <input type="checkbox" ${e.ok?'checked':''} ${mgmtLocked?'disabled':''} onclick="${mgmtLocked?'':`toggleCheck('${sec.name}','${item}','ok')`}" style="${mgmtLocked?'opacity:1':''}">
-          <span style="${mgmtLocked?'opacity:0.5':''}">이상무</span>
-        </div>
+        <div class="item-name">${escapeHtml(item)}${needsVendorConfirmAlert ? '<span class="vendor-confirm-warning">(경고)</span>' : ''}${MECHANICAL_ITEMS.has(item) ? '<span class="mech-tag">(기계공사)</span>' : ''}${ELECTRICAL_ITEMS.has(item) ? '<span class="elec-tag">(전기공사)</span>' : ''}${(sec.name !== '빌트인 (해당 시)' && !MECHANICAL_ITEMS.has(item) && !ELECTRICAL_ITEMS.has(item)) ? '<span class="arch-tag">(건축공사)</span>' : ''}</div>
         <div class="item-check zone-mgmt">
           <input type="checkbox" ${e.ng?'checked':''} ${mgmtLocked?'disabled':''} onclick="${mgmtLocked?'':`toggleCheck('${sec.name}','${item}','ng')`}" style="${mgmtLocked?'opacity:1':''}">
           <span style="${mgmtLocked?'opacity:0.5':''}">이상유</span>
@@ -1423,7 +1575,6 @@ function renderChecklist(){
       <div style="display:${isCollapsed?'none':'block'}">
         <div class="col-header">
           <div class="h-note">항목</div>
-          <div class="h-mgmt" style="text-align:center">이상무<span class="col-sub">(관리소 확인)</span></div>
           <div class="h-mgmt" style="text-align:center">이상유<span class="col-sub">(관리소 확인)</span></div>
           <div class="h-vendor">보수업체<br>(필요시)</div>
           <div class="h-mgmt">내용</div>
@@ -1440,7 +1591,6 @@ function renderChecklist(){
   renderCoopActiveList();
   setupCustomScrollbar();
   updateMgmtLockButton();
-  renderOverdueAlert();
 }
 
 function updateMgmtLockButton(){
@@ -1452,7 +1602,7 @@ function updateMgmtLockButton(){
   if(notice){
     if(locked){
       notice.style.display = 'block';
-      notice.innerHTML = `<div class="mgmt-locked-notice-card"><i class="ti ti-lock"></i> 관리소 확인란(이상무/이상유)이 잠겨있습니다. 하단의 잠금 해제 버튼을 눌러야 수정할 수 있습니다.</div>`;
+      notice.innerHTML = `<div class="mgmt-locked-notice-card"><i class="ti ti-lock"></i> 관리소 확인란(이상유)이 잠겨있습니다. 하단의 잠금 해제 버튼을 눌러야 수정할 수 있습니다.</div>`;
     } else {
       notice.style.display = 'none';
       notice.innerHTML = '';
@@ -1497,43 +1647,6 @@ function closeHistoryModal(){
   document.getElementById('history-modal').classList.remove('show');
 }
 
-function renderOverdueAlert(){
-  const box = document.getElementById('overdue-alert');
-  if(!box || !currentData || !currentData.checklist) return;
-
-  const today = new Date();
-  today.setHours(0,0,0,0);
-
-  const overdueItems = [];
-  Object.keys(currentData.checklist).forEach(k => {
-    const e = currentData.checklist[k];
-    if(!e || e.done || !e.progress || !e.progressDate) return;
-    const startDate = new Date(e.progressDate + 'T00:00:00');
-    if(isNaN(startDate.getTime())) return;
-    const daysSinceStart = Math.round((today - startDate) / (1000*60*60*24));
-    if(daysSinceStart >= 14){
-      const idx = k.indexOf('-');
-      const item = k.slice(idx+1);
-      overdueItems.push({ item, progressDate: e.progressDate, overdueDays: daysSinceStart - 14 });
-    }
-  });
-
-  if(overdueItems.length === 0){ box.style.display='none'; box.innerHTML=''; return; }
-
-  box.style.display = 'block';
-  box.innerHTML = `
-    <div class="overdue-alert-card">
-      <i class="ti ti-alert-triangle"></i>
-      <div>
-        보수진행(업체확인) 시작일로부터 14일이 지난 항목이 ${overdueItems.length}건 있습니다.
-        <div class="overdue-alert-list">
-          ${overdueItems.map(it => `<div class="overdue-alert-item">${escapeHtml(it.item)} (시작일 : ${escapeHtml(it.progressDate)}, 지연 ${it.overdueDays}일)</div>`).join('')}
-        </div>
-      </div>
-    </div>
-  `;
-}
-
 function updateSummary(){
   const entries = Object.values(currentData.checklist);
   const total = entries.length;
@@ -1544,6 +1657,31 @@ function updateSummary(){
   document.getElementById('s-ng').textContent = ng;
   document.getElementById('s-progress').textContent = progress;
   document.getElementById('s-done').textContent = done;
+
+  // 접수항목: 관리소/업체 구분
+  const mgmtNg = entries.filter(e=>e.ng).length;
+  const vendorNg = entries.filter(e=>e.vendorConfirm).length;
+  document.getElementById('s-ng-sub').textContent = ng > 0 ? `관리소(${mgmtNg})·업체(${vendorNg})` : '';
+
+  // 보수중/완료: 공정별(건축/기계/전기) 구분
+  const hasVendorProgress = (e) => {
+    if(!e || e.done) return false;
+    if(e.progress) return true;
+    if(e.coop && (e.coop.건축 || e.coop.기계 || e.coop.전기)) return true;
+    return false;
+  };
+  const progressByType = {건축:0, 기계:0, 전기:0};
+  const doneByType = {건축:0, 기계:0, 전기:0};
+  Object.keys(currentData.checklist).forEach(k => {
+    const e = currentData.checklist[k];
+    const item = k.split('-').slice(1).join('-');
+    const typeKey = MECHANICAL_ITEMS.has(item) ? '기계' : (ELECTRICAL_ITEMS.has(item) ? '전기' : '건축');
+    if(hasVendorProgress(e)) progressByType[typeKey]++;
+    if(e.done) doneByType[typeKey]++;
+  });
+  const formatBreakdown = (byType) => COOP_TYPES.filter(t=>byType[t]>0).map(t=>`${t}(${byType[t]})`).join('·');
+  document.getElementById('s-progress-sub').textContent = formatBreakdown(progressByType);
+  document.getElementById('s-done-sub').textContent = formatBreakdown(doneByType);
 }
 
 function renderFilteredListInto(checklist, filterFn, emptyText){
