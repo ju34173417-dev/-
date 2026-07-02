@@ -101,8 +101,8 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 }
 .complex-icon-box:active .complex-icon-bg{transform:translateY(2px);box-shadow:0 1px 0 rgba(26,26,26,0.3)}
 .complex-icon-box.expanded .complex-icon-bg{border-width:3px;box-shadow:0 4px 0 rgba(26,26,26,0.5)}
-.complex-icon-label{font-size:17px;font-weight:800;text-align:center;line-height:1.3;word-break:keep-all}
-.complex-icon-count{font-size:14px;font-weight:700;opacity:0.85}
+.complex-icon-label{font-size:20px;font-weight:800;text-align:center;line-height:1.3;word-break:keep-all}
+.complex-icon-count{font-size:16px;font-weight:700;opacity:0.85}
 
 /* 단지 세대 목록 팝업 모달 */
 .complex-modal-card{padding:0;overflow:hidden;max-height:82vh;display:flex;flex-direction:column;width:92vw;max-width:420px;border-radius:16px}
@@ -276,10 +276,31 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
   padding:10px 4px;border-bottom:1px solid #E4E1D6;font-size:14px;
 }
 .ng-list-item:last-child{border-bottom:none}
+.ng-list-item[onclick]:active{background:#F1EFE8}
 .ng-list-item .ng-item-name{font-weight:600;color:#26241D}
 .ng-item-date{font-weight:500;font-size:11.5px;color:#000000}
 .ng-list-item .ng-item-sec{font-size:11.5px;color:#000000}
 .ng-list-empty{text-align:center;padding:24px 0;color:#000000;font-size:13px}
+
+.unit-inline-list-box{
+  margin-top:8px;max-width:99%;margin-left:auto;margin-right:auto;
+  background:#FFFFFF;border:2px solid #1A1A1A;border-radius:10px;overflow:hidden;
+  box-shadow:0 2px 0 rgba(26,26,26,0.3);
+}
+.unit-inline-list-title{
+  font-size:12px;font-weight:800;color:#26241D;background:#F1EFE8;
+  padding:7px 10px;border-bottom:1.5px solid #1A1A1A;
+}
+.unit-inline-list-body{max-height:240px;overflow-y:auto;padding:2px 10px}
+.unit-inline-list-item{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:8px 2px;border-bottom:1px solid #E4E1D6;font-size:12.5px;
+}
+.unit-inline-list-item:last-child{border-bottom:none}
+.unit-inline-item-name{font-weight:700;color:#26241D}
+.unit-inline-item-date{font-weight:500;font-size:10.5px;color:#6B6754}
+.unit-inline-item-sec{font-size:10.5px;color:#6B6754}
+.unit-inline-list-empty{text-align:center;padding:16px 0;color:#6B6754;font-size:12px}
 .modal-field{margin-bottom:12px}
 .modal-field-row{display:flex;gap:10px;margin-bottom:0}
 .modal-field-row .modal-field{flex:1;margin-bottom:12px}
@@ -289,6 +310,20 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
   border-radius:8px;outline:none;color:#26241D;background:#FAFAF7;
 }
 .modal-field input:focus, .modal-field select:focus{border-color:#7A2E3A}
+.dong-ho-row{display:flex;align-items:center;gap:6px}
+.dong-ho-input{
+  flex:1;min-width:0;padding:11px 8px;font-size:14px;border:1px solid #D2CDBC;
+  border-radius:8px;outline:none;color:#26241D;background:#FAFAF7;text-align:center;
+  -moz-appearance:textfield;
+}
+.dong-ho-input::-webkit-outer-spin-button,.dong-ho-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.dong-ho-input:focus{border-color:#7A2E3A}
+.dong-ho-suffix{font-size:14px;font-weight:700;color:#26241D;flex-shrink:0}
+.dong-ho-row-header{gap:5px}
+.dong-ho-input-header{
+  flex:1;min-width:0;text-align:center;-moz-appearance:textfield;
+}
+.dong-ho-input-header::-webkit-outer-spin-button,.dong-ho-input-header::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .complex-options-list{
   position:absolute;top:100%;left:0;right:0;margin-top:2px;background:#FFFFFF;
   border:1.5px solid #1A1A1A;border-radius:8px;max-height:180px;overflow-y:auto;
@@ -367,6 +402,14 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 }
 .coop-active-line-tag.tag-request{color:#1F6B3A;background:#DCF3E0}
 .coop-active-line-tag.tag-target{color:#9A5C12;background:#FBE7C6}
+.coop-active-line-tag.tag-rejected{color:#A32D2D;background:#F3E6E8}
+.coop-active-line-tag.tag-unacceptable{color:#5E3A5E;background:#E6DCE8}
+.rejected-active-card{background:#FBF2F0}
+.rejected-active-note{
+  width:100%;font-size:11.5px;color:#26241D;margin-top:4px;padding:5px 8px;
+  background:#FFFFFF;border-radius:6px;border:1px solid #E4E1D6;
+}
+.rejected-active-note-empty{color:#9C9A92;font-style:italic}
 .coop-active-arrow-icon{font-size:14px;color:#B5650F;flex-shrink:0}
 .coop-active-item-name{font-weight:700;color:#26241D}
 .coop-active-category{font-size:11px;font-weight:600;color:#000000}
@@ -391,6 +434,9 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .summary-4{grid-template-columns:1fr 1fr 1fr 1fr}
 .summary-4 .sum-val{font-size:20px}
 .summary-4 .sum-label{font-size:11.5px}
+.summary-6{grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto;gap:8px}
+.summary-6 .sum-val{font-size:19px}
+.summary-6 .sum-label{font-size:11px}
 .sum-card{background:#F1EFE8;border-radius:10px;padding:8px;text-align:center;border:2px solid #1A1A1A;box-shadow:0 2px 0 rgba(26,26,26,0.3)}
 .sum-card-clickable{cursor:pointer}
 .sum-card-clickable:active{background:#E4E1D6}
@@ -408,7 +454,7 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .sec-head.collapsed .sec-chevron{transform:rotate(-90deg)}
 
 .item-row{
-  display:grid;grid-template-columns:124px 90px 70px 1fr 90px 132px 95px;
+  display:grid;grid-template-columns:124px 90px 70px minmax(170px, 1fr) 90px 150px 100px;
   gap:0;border-top:1px solid #E4E1D6;font-size:12px;align-items:stretch;
 }
 .item-row:first-of-type{border-top:none}
@@ -435,27 +481,37 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .item-check{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 2px;border-left:1px solid #E4E1D6}
 .item-check input[type=checkbox]{width:17px;height:17px;cursor:pointer}
 .item-check span{font-size:9px;margin-top:2px;text-align:center;line-height:1.2;font-weight:500}
-.item-note{padding:9px 8px;border-left:1px solid #E4E1D6;display:flex;align-items:center}
+.item-note{padding:0;border-left:1px solid #E4E1D6;display:flex;align-items:stretch}
 .item-date-tag{display:block;font-size:8.5px;color:#9A5C12;font-weight:700;margin-top:2px;text-align:center}
 .item-note input{width:100%;border:none;background:transparent;font-size:16px;color:#26241D;outline:none}
+.item-note-split{flex-direction:column;align-items:stretch;justify-content:center;gap:0;width:100%}
+.note-field{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:8px 8px;flex:1}
+.note-field-mgmt{background:#FAF3F4;border-bottom:1.5px solid #E4E1D6}
+.note-field-vendor{background:#FDF6EC}
+.note-input-mgmt{width:100%;border:none;background:transparent;font-size:11px!important;color:#26241D;outline:none;padding:1px 4px;text-align:left!important;box-sizing:border-box}
+.note-input-mgmt::placeholder{color:#8A4A56;font-weight:700}
+.note-input-mgmt:focus{background:rgba(122,46,58,0.05)}
+.note-input-vendor{width:100%;border:none;background:transparent;font-size:11px!important;color:#26241D;outline:none;padding:1px 4px;text-align:left!important;box-sizing:border-box}
+.note-input-vendor::placeholder{color:#7A4A0A;font-weight:700}
+.note-input-vendor:focus{background:rgba(181,101,15,0.08)}
 .item-repair{padding:4px 6px;border-left:1px solid #E4E1D6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
 .item-repair input[type=checkbox]{width:17px;height:17px;cursor:pointer}
 .item-repair span{font-size:9px;font-weight:700;color:#7A4A0A}
-.item-coop{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 4px;border-left:1px solid #E4E1D6;gap:4px}
-.coop-opts-row{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:8px}
-.coop-note-row{width:100%;display:flex;align-items:center;gap:4px}
+.item-coop{display:flex;flex-direction:column;align-items:stretch;justify-content:center;padding:4px 4px;border-left:1px solid #E4E1D6;gap:4px}
+.coop-opts-row{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:4px}
+.coop-note-row{width:100%;display:flex;align-items:center;gap:4px;margin-top:2px}
 .coop-note-label{font-size:8.5px;font-weight:700;color:#7A4A0A;flex-shrink:0;min-width:18px;text-align:center}
 .coop-note-input{
-  width:100%;font-size:9.5px;font-weight:600;padding:4px 5px;border:1.5px solid #E8A33D;border-radius:5px;
-  background:#FFF3D6;color:#7A4A0A;outline:none;box-shadow:0 1px 3px rgba(229,156,40,0.35);
+  width:100%;font-size:8.5px;font-weight:600;padding:3px 4px;border:1.5px solid #E8A33D;border-radius:5px;
+  background:#FFF3D6;color:#7A4A0A;outline:none;box-shadow:0 1px 3px rgba(229,156,40,0.35);box-sizing:border-box;
 }
 .coop-note-input:focus{border-color:#B5650F;background:#FFE9B8}
 .coop-note-input::placeholder{color:#B5650F;opacity:0.8;font-weight:500}
-.coop-opt{display:flex;flex-direction:column;align-items:center;gap:1px}
-.coop-opt input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-color:#7A4A0A}
-.coop-opt span{font-size:8.5px;color:#7A4A0A;font-weight:700}
+.coop-opt{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:center;gap:3px;width:100%}
+.coop-opt input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-color:#7A4A0A;flex-shrink:0}
+.coop-opt span{font-size:8.5px;color:#7A4A0A;font-weight:700;flex-shrink:0}
 .coop-confirm-done-box{
-  display:flex;align-items:center;gap:6px;margin-top:3px;padding:3px 6px;
+  display:flex;align-items:center;gap:6px;padding:3px 6px;flex-shrink:0;
   border:1px solid #D2CDBC;border-radius:7px;background:#FBFAF6;
 }
 .coop-confirm-mini{display:flex;flex-direction:column;align-items:center;gap:1px;cursor:pointer}
@@ -464,13 +520,34 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .coop-done-mini{display:flex;flex-direction:column;align-items:center;gap:1px;cursor:pointer}
 .coop-done-mini input[type=checkbox]{width:13px;height:13px;cursor:pointer;accent-color:#1F6B3A}
 .coop-done-mini span{font-size:7.5px;color:#1F6B3A;font-weight:700}
-.item-done{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px;border-left:1px solid #E4E1D6;gap:2px}
+.coop-mini-date{font-size:6.5px;color:#6B6754;font-weight:600;white-space:nowrap}
+.item-done{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px;border-left:1px solid #E4E1D6;gap:3px}
 .done-badge{font-size:10px;padding:3px 8px;border-radius:99px;font-weight:700;cursor:pointer;white-space:nowrap}
 .done-yes{background:#F0DDB8;color:#7A4A0A}
 .done-no{background:#E7E2D6;color:#3D3B33}
+.done-rejected{background:#F3E6E8;color:#A32D2D}
+.done-unacceptable{background:#E6DCE8;color:#5E3A5E}
+.done-status-group{display:flex;flex-direction:column;gap:4px;align-items:stretch;width:100%}
+.done-status-box{
+  display:flex;flex-direction:column;gap:2px;align-items:stretch;
+  border:1.5px solid #1A1A1A;border-radius:8px;padding:3px;background:rgba(255,255,255,0.5);
+}
+.done-status-btn{
+  font-size:9px;padding:3px 5px;border-radius:6px;font-weight:700;cursor:pointer;text-align:center;
+  background:#E7E2D6;color:#6B6754;white-space:nowrap;border:1px solid transparent;
+}
+.done-status-btn.active-done{background:#DDE5DC;color:#1F6B3A;border-color:#1F6B3A}
+.done-status-btn.active-pending{background:#F3E6E8;color:#A32D2D;border-color:#A32D2D}
+.done-status-btn.active-rejected{background:#F3E6E8;color:#A32D2D;border-color:#A32D2D}
+.done-status-btn.active-unacceptable{background:#F3E6E8;color:#A32D2D;border-color:#A32D2D}
+.done-note-input{
+  width:100%;margin-top:3px;font-size:10px;padding:4px 6px;border:1px solid #D2CDBC;
+  border-radius:6px;outline:none;color:#26241D;background:#FAFAF7;box-sizing:border-box;
+}
+.done-note-input:focus{border-color:#7A2E3A}
 
 .col-header{
-  display:grid;grid-template-columns:124px 90px 70px 1fr 90px 132px 95px;
+  display:grid;grid-template-columns:124px 90px 70px minmax(170px, 1fr) 90px 150px 100px;
   gap:0;border-top:1px solid #E4E1D6;font-size:10.5px;font-weight:600;
 }
 .col-header div{padding:5px 6px;text-align:center;line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center}
@@ -495,7 +572,7 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .note-area textarea:focus{border-color:#7A2E3A}
 
 .scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
-.scroll-x .item-row,.scroll-x .col-header{min-width:753px}
+.scroll-x .item-row,.scroll-x .col-header{min-width:794px}
 .scroll-hint{font-size:11px;color:#000000;text-align:center;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:4px}
 .custom-scrollbar-track{
   position:relative;height:10px;background:#E4E1D6;border-radius:99px;margin:8px 0 16px;cursor:pointer;display:block;
@@ -600,9 +677,15 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
     <div class="header">
       <div class="header-grid">
         <div class="hrow"><span class="hlabel">단지명</span><input class="hval hval-strong" id="f-complex" placeholder="○○마을 ○○단지" oninput="saveCurrentUnit()"></div>
-        <div class="hrow"><span class="hlabel">임차인</span><input class="hval hval-strong" id="f-tenant" placeholder="성명 입력" oninput="saveCurrentUnit()"></div>
-        <div class="hrow"><span class="hlabel">동/호</span><input class="hval hval-strong" id="f-unit" placeholder="예) 101동 501호" oninput="saveCurrentUnit()"></div>
-        <div class="hrow"><span class="hlabel">점검일(관리소)</span><input class="hval hval-strong" id="f-inspect" type="date" oninput="saveCurrentUnit()"></div>
+        <div class="hrow"><span class="hlabel">동/호</span>
+          <div class="dong-ho-row dong-ho-row-header">
+            <input type="number" inputmode="numeric" class="hval hval-strong dong-ho-input-header" id="f-dong" placeholder="101" min="0" oninput="saveCurrentUnit()">
+            <span class="dong-ho-suffix">동</span>
+            <input type="number" inputmode="numeric" class="hval hval-strong dong-ho-input-header" id="f-ho" placeholder="501" min="0" oninput="saveCurrentUnit()">
+            <span class="dong-ho-suffix">호</span>
+          </div>
+        </div>
+        <div class="hrow"><span class="hlabel">COTIS(관리소)</span><input class="hval hval-strong" id="f-inspect" type="date" oninput="saveCurrentUnit()"></div>
         <div class="hrow"><span class="hlabel">퇴거일</span><input class="hval hval-strong" id="f-moveout" type="date" oninput="saveCurrentUnit()"></div>
       </div>
     </div>
@@ -614,14 +697,18 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 
     <div id="mgmt-locked-notice" style="display:none"></div>
 
-    <div class="summary summary-4">
+    <div class="summary summary-6">
       <div class="sum-card"><div class="sum-label">전체 항목</div><div class="sum-val" id="s-total">0</div></div>
       <div class="sum-card sum-card-clickable" onclick="openNgListModal()"><div class="sum-label">접수 항목</div><div class="sum-val" id="s-ng" style="color:#A32D2D">0</div><div class="sum-sub" id="s-ng-sub"></div></div>
       <div class="sum-card sum-card-clickable" onclick="openProgressListModal()"><div class="sum-label">보수 중</div><div class="sum-val" id="s-progress" style="color:#B5650F">0</div><div class="sum-sub" id="s-progress-sub"></div></div>
+      <div class="sum-card sum-card-clickable" onclick="openRejectedListModal()"><div class="sum-label">업체반려</div><div class="sum-val" id="s-rejected" style="color:#A32D2D">0</div><div class="sum-sub" id="s-rejected-sub"></div></div>
+      <div class="sum-card sum-card-clickable" onclick="openUnacceptableListModal()"><div class="sum-label">수용불가</div><div class="sum-val" id="s-unacceptable" style="color:#5E3A5E">0</div><div class="sum-sub" id="s-unacceptable-sub"></div></div>
       <div class="sum-card sum-card-clickable" onclick="openDoneListModal()"><div class="sum-label">보수 완료</div><div class="sum-val" id="s-done" style="color:#7A4A0A">0</div><div class="sum-sub" id="s-done-sub"></div></div>
     </div>
 
     <div id="coop-active-list" style="display:none"></div>
+
+    <div id="rejected-active-list" style="display:none"></div>
 
     <div class="scroll-x" id="checklist-scroll">
       <div id="checklist-body"></div>
@@ -658,12 +745,13 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
       </div>
       <div class="modal-field">
         <label>동/호 *</label>
-        <input type="text" id="nu-unit" placeholder="예) 101동 501호">
+        <div class="dong-ho-row">
+          <input type="number" inputmode="numeric" id="nu-dong" class="dong-ho-input" placeholder="101" min="0">
+          <span class="dong-ho-suffix">동</span>
+          <input type="number" inputmode="numeric" id="nu-ho" class="dong-ho-input" placeholder="501" min="0">
+          <span class="dong-ho-suffix">호</span>
+        </div>
       </div>
-    </div>
-    <div class="modal-field">
-      <label>임차인 성명</label>
-      <input type="text" id="nu-tenant" placeholder="성명 입력 (선택)">
     </div>
     <div class="modal-error" id="nu-error">동/호를 입력해주세요.</div>
     <div class="modal-actions">
@@ -712,6 +800,47 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
   </div>
 </div>
 
+<div class="modal-overlay" id="set-complex-pw-modal">
+  <div class="modal-card center-modal">
+    <h3><i class="ti ti-lock-plus"></i> 단지 비밀번호 설정</h3>
+    <p style="font-size:13px;color:#26241D;margin-bottom:12px;line-height:1.5">
+      <span id="set-pw-complex-name" style="font-weight:800;color:#7A2E3A"></span> 단지는 처음 등록됩니다.<br>
+      앞으로 이 단지에 접근할 때 사용할 4자리 비밀번호를 설정해주세요.
+    </p>
+    <div class="modal-field">
+      <label>비밀번호 (숫자 4자리)</label>
+      <input type="password" inputmode="numeric" maxlength="4" id="set-pw-input1" placeholder="••••">
+    </div>
+    <div class="modal-field">
+      <label>비밀번호 확인</label>
+      <input type="password" inputmode="numeric" maxlength="4" id="set-pw-input2" placeholder="••••">
+    </div>
+    <div class="modal-error" id="set-pw-error"></div>
+    <div class="modal-actions">
+      <button class="modal-cancel" onclick="closeSetComplexPasswordModal()">취소</button>
+      <button class="modal-confirm" onclick="confirmSetComplexPassword()">설정하고 등록</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="unlock-complex-pw-modal">
+  <div class="modal-card center-modal">
+    <h3><i class="ti ti-lock"></i> 단지 비밀번호 확인</h3>
+    <p style="font-size:13px;color:#26241D;margin-bottom:12px;line-height:1.5">
+      <span id="unlock-pw-complex-name" style="font-weight:800;color:#7A2E3A"></span> 단지의 비밀번호를 입력해주세요.
+    </p>
+    <div class="modal-field">
+      <label>비밀번호 (숫자 4자리)</label>
+      <input type="password" inputmode="numeric" maxlength="4" id="unlock-pw-input" placeholder="••••" onkeydown="if(event.key==='Enter')confirmUnlockComplexPassword()">
+    </div>
+    <div class="modal-error" id="unlock-pw-error"></div>
+    <div class="modal-actions">
+      <button class="modal-cancel" onclick="closeUnlockComplexPasswordModal()">취소</button>
+      <button class="modal-confirm" onclick="confirmUnlockComplexPassword()">확인</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -736,8 +865,20 @@ const ELECTRICAL_ITEMS = new Set([
 const STORAGE_PREFIX = 'unit_checklist_v1:';
 const INDEX_KEY = 'unit_checklist_v1_index';
 const COMPLEX_NAME_KEY = 'unit_checklist_v1_complex_name';
+const COMPLEX_PW_PREFIX = 'unit_checklist_v1_complex_pw:';
 const API_URL = 'https://script.google.com/macros/s/AKfycbyag-NvWyP2mb0oMnfTqhPW84K-yxcOx2dOZu7-0bDyyrHqlG8kD_d373Acwzmdm-kXhg/exec';
 const AUTO_REFRESH_MS = 5000;
+
+// (참고) 세대 등록 시 설정한 단지 비밀번호는 카드를 나갔다가 다시 들어올 때마다 매번 확인합니다.
+
+function getComplexPassword(complexName){
+  if(!complexName) return null;
+  try{ return localStorage.getItem(COMPLEX_PW_PREFIX + complexName); }catch(e){ return null; }
+}
+function setComplexPassword(complexName, pw){
+  if(!complexName) return;
+  try{ localStorage.setItem(COMPLEX_PW_PREFIX + complexName, pw); }catch(e){}
+}
 
 function getComplexName(){
   try{ return localStorage.getItem(COMPLEX_NAME_KEY) || ''; }catch(e){ return ''; }
@@ -749,6 +890,7 @@ let collapsedSections = {};
 let saveTimer = null;
 let allUnits = [];
 let expandedComplex = null;
+let expandedUnitList = null; // { unitId, type: 'ng'|'progress'|'done' }
 let pendingDeleteId = null;
 let autoRefreshTimer = null;
 let isSyncing = false;
@@ -879,7 +1021,7 @@ function emptyChecklistState(){
   const state = {};
   SECTIONS.forEach(sec=>{
     sec.items.forEach(item=>{
-      state[`${sec.name}-${item}`] = {ok:false, ng:false, note:'', vendorConfirm:false, progress:false, coop:{건축:false,기계:false,전기:false}, done:false};
+      state[`${sec.name}-${item}`] = {ok:false, ng:false, note:'', vendorNote:'', vendorConfirm:false, progress:false, coop:{건축:false,기계:false,전기:false}, coopConfirmDate:{}, coopDoneDate:{}, done:false, doneStatus:'pending', doneNote:''};
     });
   });
   return state;
@@ -1173,7 +1315,7 @@ function renderUnitCard(u, displayNumber){
       ? `<span class="notify-badge">${totalChanges}</span>`
       : '';
 
-    // 점검일로부터 14일 경과 + 업체확인 미체크 항목 계산
+    // COTIS(관리소) 등재일로부터 14일 경과 + 업체확인 미체크 항목 계산
     const overdueWarningItems = [];
     if(u.data.inspectDate){
       const inspectDate = new Date(u.data.inspectDate + 'T00:00:00');
@@ -1196,10 +1338,10 @@ function renderUnitCard(u, displayNumber){
     }
 
     const progressRow = vendorProgressItems.length > 0
-      ? `<div class="unit-square-box summary-progress unit-counts-clickable" onclick="event.stopPropagation(); openUnitProgressListModal('${u.id}')"><span class="unit-square-label">보수중</span><span class="unit-square-num">${vendorProgressItems.length}</span></div>`
+      ? `<div class="unit-square-box summary-progress unit-counts-clickable" onclick="event.stopPropagation(); toggleUnitInlineList('${u.id}','progress')"><span class="unit-square-label">보수처리중</span><span class="unit-square-num">${vendorProgressItems.length}</span></div>`
       : '';
     const doneRow = vendorDoneItems.length > 0
-      ? `<div class="unit-square-box summary-done unit-counts-clickable" onclick="event.stopPropagation(); openUnitDoneListModal('${u.id}')"><span class="unit-square-label">보수완료</span><span class="unit-square-num">${doneCount}</span></div>`
+      ? `<div class="unit-square-box summary-done unit-counts-clickable" onclick="event.stopPropagation(); toggleUnitInlineList('${u.id}','done')"><span class="unit-square-label">보수완료</span><span class="unit-square-num">${doneCount}</span></div>`
       : '';
     const complexColor = getComplexColor(u.data.complex);
     const daysText = (daysToMoveout !== null && daysToMoveout !== undefined)
@@ -1207,6 +1349,8 @@ function renderUnitCard(u, displayNumber){
           ? `<span class="unit-days-tag">보수완료 소요일 : ${daysToMoveout}일</span>`
           : `<span class="unit-days-tag unit-days-overdue">보수완료 소요일 : ${Math.abs(daysToMoveout)}일</span>`)
       : '';
+    const isListExpanded = expandedUnitList && expandedUnitList.unitId === u.id;
+    const inlineListHtml = isListExpanded ? renderUnitInlineList(u) : '';
     return `<div class="unit-card">
       <div class="unit-main">
         <div class="unit-text">
@@ -1217,7 +1361,8 @@ function renderUnitCard(u, displayNumber){
               <div class="unit-name-divider" style="background:${complexColor.fg}"></div>
             </div>
           </div>
-          <div class="unit-counts-row"><span class="unit-square-box summary-ng unit-counts-clickable" onclick="openUnitNgListModal('${u.id}')"><span class="unit-square-label">접수항목</span><span class="unit-square-num">${ngCount}</span></span>${progressRow}${doneRow}</div>
+          <div class="unit-counts-row"><span class="unit-square-box summary-ng unit-counts-clickable" onclick="toggleUnitInlineList('${u.id}','ng')"><span class="unit-square-label">접수항목</span><span class="unit-square-num">${ngCount}</span></span>${progressRow}${doneRow}</div>
+          ${inlineListHtml}
           ${ngCount > 0 ? (() => {
             const pct = Math.round((doneCount/ngCount)*100);
             const pcolor = getProgressColor(pct);
@@ -1227,7 +1372,7 @@ function renderUnitCard(u, displayNumber){
           </div>`;
           })() : ''}
           ${(u.data.moveoutDate || u.data.inspectDate) ? `<div class="unit-date-row">
-            ${u.data.inspectDate ? `<div class="unit-moveout-row"><i class="ti ti-clipboard-check"></i> 점검일 : ${escapeHtml(u.data.inspectDate)}</div>` : ''}
+            ${u.data.inspectDate ? `<div class="unit-moveout-row"><i class="ti ti-clipboard-check"></i> COTIS(관리소) : ${escapeHtml(u.data.inspectDate)}</div>` : ''}
             ${u.data.moveoutDate ? `<div class="unit-moveout-row"><i class="ti ti-calendar-event"></i> 퇴거일 : ${escapeHtml(u.data.moveoutDate)}</div>` : ''}
           </div>` : ''}
           ${overdueWarningItems.length > 0 ? `<div class="unit-overdue-warning-box">
@@ -1242,14 +1387,64 @@ function renderUnitCard(u, displayNumber){
     </div>`;
 }
 
+function toggleUnitInlineList(unitId, type){
+  if(expandedUnitList && expandedUnitList.unitId === unitId && expandedUnitList.type === type){
+    expandedUnitList = null;
+  } else {
+    expandedUnitList = { unitId, type };
+  }
+  renderUnitList();
+}
+
+function renderUnitInlineList(u){
+  const checklist = u.data.checklist || {};
+  const type = expandedUnitList.type;
+  const isProgress = (e) => {
+    if(!e || e.done) return false;
+    if(e.progress) return true;
+    if(e.coop && (e.coop.건축 || e.coop.기계 || e.coop.전기)) return true;
+    return false;
+  };
+  let filterFn, title;
+  if(type === 'ng'){ filterFn = e=>e.ng||e.vendorConfirm; title = '접수 항목'; }
+  else if(type === 'progress'){ filterFn = isProgress; title = '보수처리중 항목'; }
+  else { filterFn = e=>e&&e.done; title = '보수완료 항목'; }
+
+  const keys = Object.keys(checklist).filter(k => filterFn(checklist[k]));
+  const itemsHtml = keys.length === 0
+    ? `<div class="unit-inline-list-empty">해당 항목이 없습니다.</div>`
+    : keys.map(k => {
+        const idx = k.indexOf('-');
+        const sec = k.slice(0, idx);
+        const item = k.slice(idx+1);
+        const e = checklist[k];
+        const noteText = e.note ? escapeHtml(e.note) : '';
+        let dateText = '';
+        if(e.done && e.doneDate) dateText = `완료일 : ${escapeHtml(e.doneDate)}`;
+        else if(e.progress && e.progressDate) dateText = `시작일 : ${escapeHtml(e.progressDate)}`;
+        return `<div class="unit-inline-list-item">
+          <div>
+            <div class="unit-inline-item-name">${escapeHtml(item)}${dateText ? ` <span class="unit-inline-item-date">(${dateText})</span>` : ''}</div>
+            <div class="unit-inline-item-sec">${escapeHtml(sec)}${noteText?' · '+noteText:''}</div>
+          </div>
+          <span class="done-badge ${e.done?'done-yes':'done-no'}">${e.done?'완료':'미완료'}</span>
+        </div>`;
+      }).join('');
+
+  return `<div class="unit-inline-list-box">
+    <div class="unit-inline-list-title">${title} (${keys.length})</div>
+    <div class="unit-inline-list-body">${itemsHtml}</div>
+  </div>`;
+}
+
 function openNewUnitModal(){
   if(!STORAGE_OK){ showToast('저장 기능을 사용할 수 없습니다'); return; }
   document.getElementById('nu-error').style.display = 'none';
-  document.getElementById('nu-unit').value='';
-  document.getElementById('nu-tenant').value='';
+  document.getElementById('nu-dong').value='';
+  document.getElementById('nu-ho').value='';
   document.getElementById('nu-complex').value = getComplexName();
   document.getElementById('new-unit-modal').classList.add('show');
-  setTimeout(()=>{ document.getElementById('nu-unit').focus(); }, 80);
+  setTimeout(()=>{ document.getElementById('nu-dong').focus(); }, 80);
 }
 function closeNewUnitModal(){
   document.getElementById('new-unit-modal').classList.remove('show');
@@ -1258,17 +1453,27 @@ function closeNewUnitModal(){
 async function createNewUnit(){
   const errEl = document.getElementById('nu-error');
   const btn = document.getElementById('nu-confirm-btn');
-  const unitInput = document.getElementById('nu-unit');
-  const unitLabel = (unitInput.value||'').trim();
-  const tenant = (document.getElementById('nu-tenant').value||'').trim();
+  const dongInput = document.getElementById('nu-dong');
+  const hoInput = document.getElementById('nu-ho');
+  const dong = (dongInput.value||'').trim();
+  const ho = (hoInput.value||'').trim();
+  const unitLabel = (dong && ho) ? `${dong}동 ${ho}호` : '';
+  const tenant = '';
   const complex = (document.getElementById('nu-complex').value||'').trim();
 
   if(!unitLabel){
-    errEl.textContent = '동/호를 입력해주세요.';
+    errEl.textContent = '동/호를 모두 입력해주세요.';
     errEl.style.display = 'block';
-    unitInput.focus();
+    (dong ? hoInput : dongInput).focus();
     return;
   }
+
+  if(complex && !getComplexPassword(complex)){
+    errEl.style.display = 'none';
+    openSetComplexPasswordModal(complex, unitLabel, tenant);
+    return;
+  }
+
   errEl.style.display = 'none';
   btn.disabled = true;
   btn.textContent = '등록 중...';
@@ -1296,6 +1501,83 @@ async function createNewUnit(){
   showToast('세대가 등록되었습니다');
 }
 
+// ===== 단지 비밀번호 설정 (신규 단지 최초 등록 시) =====
+let pendingComplexSetup = null; // { complex, unitLabel, tenant }
+function openSetComplexPasswordModal(complex, unitLabel, tenant){
+  pendingComplexSetup = { complex, unitLabel, tenant };
+  document.getElementById('set-pw-complex-name').textContent = complex;
+  document.getElementById('set-pw-input1').value = '';
+  document.getElementById('set-pw-input2').value = '';
+  document.getElementById('set-pw-error').style.display = 'none';
+  document.getElementById('set-complex-pw-modal').classList.add('show');
+  setTimeout(()=>{ document.getElementById('set-pw-input1').focus(); }, 80);
+}
+function closeSetComplexPasswordModal(){
+  document.getElementById('set-complex-pw-modal').classList.remove('show');
+  pendingComplexSetup = null;
+}
+async function confirmSetComplexPassword(){
+  const pw1 = document.getElementById('set-pw-input1').value.trim();
+  const pw2 = document.getElementById('set-pw-input2').value.trim();
+  const errEl = document.getElementById('set-pw-error');
+  if(!/^\d{4}$/.test(pw1)){
+    errEl.textContent = '숫자 4자리로 입력해주세요.';
+    errEl.style.display = 'block';
+    return;
+  }
+  if(pw1 !== pw2){
+    errEl.textContent = '비밀번호가 서로 일치하지 않습니다.';
+    errEl.style.display = 'block';
+    return;
+  }
+  if(!pendingComplexSetup) return;
+  setComplexPassword(pendingComplexSetup.complex, pw1);
+  document.getElementById('set-complex-pw-modal').classList.remove('show');
+  pendingComplexSetup = null;
+  // 비밀번호 설정 완료 후 등록을 이어서 진행
+  await createNewUnit();
+}
+
+// ===== 단지 비밀번호 확인 (세대 카드 클릭 시) =====
+let pendingComplexUnlock = null; // { complex, callback }
+function requireComplexUnlock(complex, callback){
+  if(!complex){
+    callback();
+    return;
+  }
+  const savedPw = getComplexPassword(complex);
+  if(!savedPw){
+    // 비밀번호가 설정되어 있지 않은 단지(과거 데이터 등)는 그대로 통과
+    callback();
+    return;
+  }
+  pendingComplexUnlock = { complex, callback };
+  document.getElementById('unlock-pw-complex-name').textContent = complex;
+  document.getElementById('unlock-pw-input').value = '';
+  document.getElementById('unlock-pw-error').style.display = 'none';
+  document.getElementById('unlock-complex-pw-modal').classList.add('show');
+  setTimeout(()=>{ document.getElementById('unlock-pw-input').focus(); }, 80);
+}
+function closeUnlockComplexPasswordModal(){
+  document.getElementById('unlock-complex-pw-modal').classList.remove('show');
+  pendingComplexUnlock = null;
+}
+function confirmUnlockComplexPassword(){
+  if(!pendingComplexUnlock) return;
+  const input = document.getElementById('unlock-pw-input').value.trim();
+  const savedPw = getComplexPassword(pendingComplexUnlock.complex);
+  const errEl = document.getElementById('unlock-pw-error');
+  if(input !== savedPw){
+    errEl.textContent = '비밀번호가 일치하지 않습니다.';
+    errEl.style.display = 'block';
+    return;
+  }
+  const callback = pendingComplexUnlock.callback;
+  document.getElementById('unlock-complex-pw-modal').classList.remove('show');
+  pendingComplexUnlock = null;
+  callback();
+}
+
 function openDeleteModal(){
   pendingDeleteId = currentUnitId;
   document.getElementById('delete-modal').classList.add('show');
@@ -1312,8 +1594,18 @@ function confirmDeleteUnit(){
   goToList();
 }
 
-async function openUnit(unitId){
+function openUnit(unitId){
+  const data = loadUnitDataLocal(unitId);
+  const complex = data ? (data.complex||'').trim() : '';
+  requireComplexUnlock(complex, () => openUnitInternal(unitId));
+}
+
+async function openUnitInternal(unitId){
   setSaveStatus('idle');
+  // 단지 팝업이 열려있으면 함께 닫음
+  expandedComplex = null;
+  const complexModal = document.getElementById('complex-modal');
+  if(complexModal) complexModal.classList.remove('show');
   // 우선 로컬 캐시로 빠르게 화면을 띄움
   let data = loadUnitDataLocal(unitId);
   if(!data) return;
@@ -1356,6 +1648,22 @@ function goToList(){
   refreshUnitsFromStorage();
   window.scrollTo(0,0);
 }
+function getUnitLabelFromForm(){
+  const dong = (document.getElementById('f-dong').value||'').trim();
+  const ho = (document.getElementById('f-ho').value||'').trim();
+  return (dong && ho) ? `${dong}동 ${ho}호` : '';
+}
+function setUnitLabelToForm(unitLabel){
+  const m = (unitLabel||'').match(/^(\d+)\s*동\s*(\d+)\s*호$/);
+  if(m){
+    document.getElementById('f-dong').value = m[1];
+    document.getElementById('f-ho').value = m[2];
+  } else {
+    document.getElementById('f-dong').value = '';
+    document.getElementById('f-ho').value = '';
+  }
+}
+
 function saveAndClose(){
   if(document.activeElement && typeof document.activeElement.blur === 'function'){
     document.activeElement.blur();
@@ -1363,8 +1671,7 @@ function saveAndClose(){
   if(!currentUnitId||!currentData){ goToList(); return; }
   clearTimeout(saveTimer);
   currentData.complex = document.getElementById('f-complex').value;
-  currentData.tenant = document.getElementById('f-tenant').value;
-  currentData.unitLabel = document.getElementById('f-unit').value;
+  currentData.unitLabel = getUnitLabelFromForm();
   currentData.inspectDate = document.getElementById('f-inspect').value;
   currentData.moveoutDate = document.getElementById('f-moveout').value;
   currentData.memo = document.getElementById('f-memo').value;
@@ -1383,8 +1690,7 @@ function saveAndClose(){
 
 function fillFormFromData(){
   document.getElementById('f-complex').value = currentData.complex||'';
-  document.getElementById('f-tenant').value = currentData.tenant||'';
-  document.getElementById('f-unit').value = currentData.unitLabel||'';
+  setUnitLabelToForm(currentData.unitLabel||'');
   document.getElementById('f-inspect').value = currentData.inspectDate||'';
   document.getElementById('f-moveout').value = currentData.moveoutDate||'';
   document.getElementById('f-memo').value = currentData.memo||'';
@@ -1393,8 +1699,7 @@ function fillFormFromData(){
 function saveCurrentUnit(){
   if(!currentUnitId||!currentData) return;
   currentData.complex = document.getElementById('f-complex').value;
-  currentData.tenant = document.getElementById('f-tenant').value;
-  currentData.unitLabel = document.getElementById('f-unit').value;
+  currentData.unitLabel = getUnitLabelFromForm();
   currentData.inspectDate = document.getElementById('f-inspect').value;
   currentData.moveoutDate = document.getElementById('f-moveout').value;
   currentData.memo = document.getElementById('f-memo').value;
@@ -1420,6 +1725,11 @@ function getEntry(sec,item){
     // 기존 단일 coopNote 데이터를 마이그레이션: 체크된 모든 공종에 동일하게 들어가 있었으므로 비워서 새로 입력받도록 함
     currentData.checklist[k].coopNotes = {건축:'',기계:'',전기:''};
   }
+  if(currentData.checklist[k].coopConfirmDate === undefined) currentData.checklist[k].coopConfirmDate = {};
+  if(currentData.checklist[k].coopDoneDate === undefined) currentData.checklist[k].coopDoneDate = {};
+  if(currentData.checklist[k].doneStatus === undefined) currentData.checklist[k].doneStatus = currentData.checklist[k].done ? 'done' : 'pending';
+  if(currentData.checklist[k].doneNote === undefined) currentData.checklist[k].doneNote = '';
+  if(currentData.checklist[k].vendorNote === undefined) currentData.checklist[k].vendorNote = '';
   return currentData.checklist[k];
 }
 function todayDateStr(){
@@ -1453,6 +1763,7 @@ function toggleCheck(sec,item,val){
   renderChecklist(); saveCurrentUnit();
 }
 function setNoteValue(sec,item,val){ getEntry(sec,item).note=val; saveCurrentUnit(); }
+function setVendorNoteValue(sec,item,val){ getEntry(sec,item).vendorNote=val; saveCurrentUnit(); }
 function toggleVendorConfirm(sec,item){
   const e=getEntry(sec,item); e.vendorConfirm=!e.vendorConfirm;
   logHistory(item, e.vendorConfirm ? '보수업체(필요시) 체크' : '보수업체(필요시) 체크 해제');
@@ -1479,27 +1790,40 @@ function toggleCoopType(sec,item,type){
 function toggleCoopConfirm(sec,item,type){
   const e = getEntry(sec,item);
   e.coopConfirm[type] = !e.coopConfirm[type];
+  if(!e.coopConfirmDate) e.coopConfirmDate = {};
+  e.coopConfirmDate[type] = e.coopConfirm[type] ? todayDateStr() : '';
   logHistory(item, `${type} 협조 ${e.coopConfirm[type] ? '업체확인' : '업체확인 취소'}`);
   renderChecklist(); saveCurrentUnit();
 }
 function toggleCoopDone(sec,item,type){
   const e = getEntry(sec,item);
   e.coopDone[type] = !e.coopDone[type];
+  if(!e.coopDoneDate) e.coopDoneDate = {};
+  e.coopDoneDate[type] = e.coopDone[type] ? todayDateStr() : '';
   logHistory(item, `${type} 협조 ${e.coopDone[type] ? '완료' : '완료 취소'}`);
   renderChecklist(); saveCurrentUnit();
 }
 function setCoopNote(sec,item,type,val){ getEntry(sec,item).coopNotes[type]=val; saveCurrentUnit(); }
-function toggleDoneStatus(sec,item){
+function setDoneStatus(sec,item,status){
   const e = getEntry(sec,item);
-  e.done = !e.done;
-  if(e.done){
+  e.doneStatus = status;
+  e.done = (status === 'done');
+  if(status === 'done'){
     e.progress=false;
     e.doneDate = todayDateStr();
+  } else if(status === 'rejected' || status === 'unacceptable' || status === 'pending'){
+    const dateStr = todayDateStr();
+    e.doneDate = dateStr;
+    e.progress = true;
+    e.progressDate = dateStr;
+  } else {
+    e.doneDate = '';
   }
-  else { e.doneDate = ''; }
-  logHistory(item, e.done ? '해당보수완료 체크' : '해당보수완료 체크 해제');
+  const statusNames = { done:'완료', pending:'미완료', rejected:'업체반려', unacceptable:'수용불가' };
+  logHistory(item, `해당보수완료 상태 변경 : ${statusNames[status]}`);
   renderChecklist(); saveCurrentUnit();
 }
+function setDoneNote(sec,item,val){ getEntry(sec,item).doneNote=val; saveCurrentUnit(); }
 function toggleSectionCollapse(name){ collapsedSections[name]=!collapsedSections[name]; renderChecklist(); }
 
 function getItemCategoryTag(item, sec){
@@ -1557,6 +1881,49 @@ function renderCoopActiveList(){
   `;
 }
 
+function renderRejectedActiveList(){
+  const box = document.getElementById('rejected-active-list');
+  if(!currentData || !currentData.checklist){ box.style.display='none'; return; }
+  const checklist = currentData.checklist;
+  const items = Object.keys(checklist)
+    .filter(k => {
+      const e = checklist[k];
+      if(!e) return false;
+      return e.doneStatus === 'rejected' || e.doneStatus === 'unacceptable';
+    })
+    .map(k => {
+      const idx = k.indexOf('-');
+      const sec = k.slice(0, idx);
+      const item = k.slice(idx+1);
+      const e = checklist[k];
+      const categoryTag = getItemCategoryTag(item, sec);
+      return { sec, item, categoryTag, status: e.doneStatus, note: e.doneNote || '', date: e.doneDate || '' };
+    });
+
+  if(items.length === 0){ box.style.display='none'; box.innerHTML=''; return; }
+
+  const statusLabel = { rejected: '업체반려', unacceptable: '수용불가' };
+  const statusClass = { rejected: 'tag-rejected', unacceptable: 'tag-unacceptable' };
+
+  box.style.display = 'block';
+  box.innerHTML = `
+    <div class="coop-active-card rejected-active-card">
+      <div class="coop-active-title"><i class="ti ti-alert-circle"></i> 업체반려·수용불가 항목</div>
+      <div class="coop-active-list">
+        ${items.map(it => `
+          <div class="coop-active-item">
+            <div class="coop-active-line">
+              <span class="coop-active-line-tag ${statusClass[it.status]}">[${escapeHtml(statusLabel[it.status])}]</span> ${escapeHtml(it.categoryTag)}(${escapeHtml(it.item)})
+              ${it.date ? `<span class="coop-mini-date">${escapeHtml(it.date)}</span>` : ''}
+              ${it.note ? `<div class="rejected-active-note">사유 : ${escapeHtml(it.note)}</div>` : `<div class="rejected-active-note rejected-active-note-empty">사유가 입력되지 않았습니다.</div>`}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
 function renderChecklist(){
   const body = document.getElementById('checklist-body');
   body.innerHTML = SECTIONS.map(sec=>{
@@ -1590,10 +1957,17 @@ function renderChecklist(){
           <input type="checkbox" ${e.vendorConfirm?'checked':''} onclick="toggleVendorConfirm('${sec.name}','${item}')">
           <span>확인</span>
         </div>
-        <div class="item-note zone-mgmt"><input placeholder="내용 입력" value="${noteVal}" oninput="setNoteValue('${sec.name}','${item}',this.value)"></div>
+        <div class="item-note item-note-split">
+          <div class="note-field note-field-mgmt">
+            <input class="note-input-mgmt" placeholder="(관리소) 내용입력" value="${noteVal}" oninput="setNoteValue('${sec.name}','${item}',this.value)">
+          </div>
+          <div class="note-field note-field-vendor">
+            <input class="note-input-vendor" placeholder="(보수업체) 내용입력" value="${escapeHtml(e.vendorNote||'')}" oninput="setVendorNoteValue('${sec.name}','${item}',this.value)">
+          </div>
+        </div>
         <div class="item-repair zone-vendor">
           <input type="checkbox" ${e.progress?'checked':''} ${disabled?'disabled':''} onclick="${disabled?'':`toggleProgress('${sec.name}','${item}')`}" style="${disabled?'opacity:0.35':''}">
-          <span style="${disabled?'opacity:0.35':''}">보수중</span>
+          <span style="${disabled?'opacity:0.35':''}">${e.doneStatus==='rejected'?'업체반려':(e.doneStatus==='unacceptable'?'수용불가':(e.progress?'보수처리중':'보수미확인'))}</span>
           ${e.progressDate ? `<span class="item-date-tag">${e.progressDate}</span>` : ''}
         </div>
         <div class="item-coop zone-coop">
@@ -1608,29 +1982,38 @@ function renderChecklist(){
                       <label class="coop-confirm-mini">
                         <input type="checkbox" ${e.coopConfirm[t]?'checked':''} ${disabled?'disabled':''} onclick="${disabled?'':`toggleCoopConfirm('${sec.name}','${item}','${t}')`}" style="${disabled?'opacity:0.35':''}">
                         <span style="${disabled?'opacity:0.35':''}">확인</span>
+                        ${e.coopConfirmDate && e.coopConfirmDate[t] ? `<span class="coop-mini-date">${e.coopConfirmDate[t]}</span>` : ''}
                       </label>
                     ` : ''}
                     <label class="coop-done-mini">
                       <input type="checkbox" ${e.coopDone[t]?'checked':''} ${disabled?'disabled':''} onclick="${disabled?'':`toggleCoopDone('${sec.name}','${item}','${t}')`}" style="${disabled?'opacity:0.35':''}">
                       <span style="${disabled?'opacity:0.35':''}">완료</span>
+                      ${e.coopDoneDate && e.coopDoneDate[t] ? `<span class="coop-mini-date">${e.coopDoneDate[t]}</span>` : ''}
                     </label>
+                  </div>
+                  <div class="coop-note-row">
+                    <input class="coop-note-input" placeholder="${t} 협조 내용 입력" value="${escapeHtml(e.coopNotes[t]||'')}" ${disabled?'disabled':''} oninput="${disabled?'':`setCoopNote('${sec.name}','${item}','${t}',this.value)`}" style="${disabled?'opacity:0.6':''}">
                   </div>
                 ` : ''}
               </div>
             `).join('')}
           </div>
-          ${COOP_TYPES.filter(t=>e.coop[t]).map(t => `
-            <div class="coop-note-row">
-              <span class="coop-note-label">${t}</span>
-              <input class="coop-note-input" placeholder="${t} 협조 내용 입력" value="${escapeHtml(e.coopNotes[t]||'')}" ${disabled?'disabled':''} oninput="${disabled?'':`setCoopNote('${sec.name}','${item}','${t}',this.value)`}" style="${disabled?'opacity:0.6':''}">
-            </div>
-          `).join('')}
         </div>
         <div class="item-done zone-vendor">
-          <span class="done-badge ${e.done?'done-yes':'done-no'}" onclick="${(e.ng||e.vendorConfirm)?`toggleDoneStatus('${sec.name}','${item}')`:''}" style="${(e.ng||e.vendorConfirm)?'':'opacity:0.4;cursor:default'}">
-            ${e.done?'완료':'미완료'}
-          </span>
+          <div class="done-status-group">
+            <div class="done-status-box">
+              <span class="done-status-btn ${(e.doneStatus||'pending')==='done'?'active-done':''}" onclick="${(e.ng||e.vendorConfirm)?`setDoneStatus('${sec.name}','${item}','done')`:''}" style="${(e.ng||e.vendorConfirm)?'':'opacity:0.4;pointer-events:none'}">완료</span>
+              <span class="done-status-btn ${(!e.doneStatus||e.doneStatus==='pending')?'active-pending':''}" onclick="${(e.ng||e.vendorConfirm)?`setDoneStatus('${sec.name}','${item}','pending')`:''}" style="${(e.ng||e.vendorConfirm)?'':'opacity:0.4;pointer-events:none'}">미완료</span>
+            </div>
+            <div class="done-status-box">
+              <span class="done-status-btn ${e.doneStatus==='rejected'?'active-rejected':''}" onclick="${(e.ng||e.vendorConfirm)?`setDoneStatus('${sec.name}','${item}','rejected')`:''}" style="${(e.ng||e.vendorConfirm)?'':'opacity:0.4;pointer-events:none'}">업체반려</span>
+              <span class="done-status-btn ${e.doneStatus==='unacceptable'?'active-unacceptable':''}" onclick="${(e.ng||e.vendorConfirm)?`setDoneStatus('${sec.name}','${item}','unacceptable')`:''}" style="${(e.ng||e.vendorConfirm)?'':'opacity:0.4;pointer-events:none'}">수용불가</span>
+            </div>
+          </div>
           ${e.doneDate ? `<span class="item-date-tag">${e.doneDate}</span>` : ''}
+          ${(e.doneStatus==='rejected' || e.doneStatus==='unacceptable') ? `
+            <input class="done-note-input" placeholder="사유를 입력해주세요" value="${escapeHtml(e.doneNote||'')}" oninput="setDoneNote('${sec.name}','${item}',this.value)">
+          ` : ''}
         </div>
       </div>`;
     }).join('');
@@ -1660,6 +2043,7 @@ function renderChecklist(){
 
   updateSummary();
   renderCoopActiveList();
+  renderRejectedActiveList();
   setupCustomScrollbar();
   updateMgmtLockButton();
 }
@@ -1724,9 +2108,13 @@ function updateSummary(){
   const ng = entries.filter(e=>e.ng || e.vendorConfirm).length;
   const done = entries.filter(e=>(e.ng||e.vendorConfirm)&&e.done).length;
   const progress = entries.filter(e=>(e.ng||e.vendorConfirm)&&e.progress&&!e.done).length;
+  const rejected = entries.filter(e=>(e.ng||e.vendorConfirm)&&e.doneStatus==='rejected').length;
+  const unacceptable = entries.filter(e=>(e.ng||e.vendorConfirm)&&e.doneStatus==='unacceptable').length;
   document.getElementById('s-total').textContent = total;
   document.getElementById('s-ng').textContent = ng;
   document.getElementById('s-progress').textContent = progress;
+  document.getElementById('s-rejected').textContent = rejected;
+  document.getElementById('s-unacceptable').textContent = unacceptable;
   document.getElementById('s-done').textContent = done;
 
   // 접수항목: 관리소/업체 구분
@@ -1734,7 +2122,7 @@ function updateSummary(){
   const vendorNg = entries.filter(e=>e.vendorConfirm).length;
   document.getElementById('s-ng-sub').textContent = ng > 0 ? `관리소(${mgmtNg})·업체(${vendorNg})` : '';
 
-  // 보수중/완료: 공정별(건축/기계/전기) 구분
+  // 보수중/완료/업체반려/수용불가: 공정별(건축/기계/전기) 구분
   const hasVendorProgress = (e) => {
     if(!e || e.done) return false;
     if(e.progress) return true;
@@ -1743,24 +2131,32 @@ function updateSummary(){
   };
   const progressByType = {건축:0, 기계:0, 전기:0};
   const doneByType = {건축:0, 기계:0, 전기:0};
+  const rejectedByType = {건축:0, 기계:0, 전기:0};
+  const unacceptableByType = {건축:0, 기계:0, 전기:0};
   Object.keys(currentData.checklist).forEach(k => {
     const e = currentData.checklist[k];
     const item = k.split('-').slice(1).join('-');
     const typeKey = MECHANICAL_ITEMS.has(item) ? '기계' : (ELECTRICAL_ITEMS.has(item) ? '전기' : '건축');
     if(hasVendorProgress(e)) progressByType[typeKey]++;
     if(e.done) doneByType[typeKey]++;
+    if(e.doneStatus==='rejected') rejectedByType[typeKey]++;
+    if(e.doneStatus==='unacceptable') unacceptableByType[typeKey]++;
   });
   const formatBreakdown = (byType) => COOP_TYPES.filter(t=>byType[t]>0).map(t=>`${t}(${byType[t]})`).join('·');
+  document.getElementById('s-rejected-sub').textContent = formatBreakdown(rejectedByType);
+  document.getElementById('s-unacceptable-sub').textContent = formatBreakdown(unacceptableByType);
   document.getElementById('s-progress-sub').textContent = formatBreakdown(progressByType);
   document.getElementById('s-done-sub').textContent = formatBreakdown(doneByType);
 }
 
-function renderFilteredListInto(checklist, filterFn, emptyText){
+function renderFilteredListInto(checklist, filterFn, emptyText, unitId){
   const keys = Object.keys(checklist || {}).filter(k => filterFn(checklist[k]));
   const body = document.getElementById('ng-list-body');
   if(keys.length === 0){
     body.innerHTML = `<div class="ng-list-empty">${emptyText}</div>`;
   } else {
+    const statusLabels = { done:'완료', rejected:'업체반려', unacceptable:'수용불가', pending:'미완료' };
+    const statusClass = { done:'done-yes', rejected:'done-rejected', unacceptable:'done-unacceptable', pending:'done-no' };
     body.innerHTML = keys.map(k => {
       const idx = k.indexOf('-');
       const sec = k.slice(0, idx);
@@ -1769,19 +2165,22 @@ function renderFilteredListInto(checklist, filterFn, emptyText){
       const noteText = e.note ? escapeHtml(e.note) : '';
       let dateText = '';
       if(e.done && e.doneDate) dateText = `완료일 : ${escapeHtml(e.doneDate)}`;
+      else if(e.doneDate && (e.doneStatus==='rejected'||e.doneStatus==='unacceptable')) dateText = `처리일 : ${escapeHtml(e.doneDate)}`;
       else if(e.progress && e.progressDate) dateText = `진행시작일 : ${escapeHtml(e.progressDate)}`;
-      return `<div class="ng-list-item">
+      const clickAttr = unitId ? ` onclick="closeNgListModal(); openUnit('${unitId}');" style="cursor:pointer"` : '';
+      const status = e.doneStatus || (e.done ? 'done' : 'pending');
+      return `<div class="ng-list-item"${clickAttr}>
         <div>
           <div class="ng-item-name">${escapeHtml(item)}${dateText ? ` <span class="ng-item-date">(${dateText})</span>` : ''}</div>
           <div class="ng-item-sec">${escapeHtml(sec)}${noteText?' · '+noteText:''}</div>
         </div>
-        <span class="done-badge ${e.done?'done-yes':'done-no'}">${e.done?'완료':'미완료'}</span>
+        <span class="done-badge ${statusClass[status]||'done-no'}">${statusLabels[status]||'미완료'}</span>
       </div>`;
     }).join('');
   }
 }
-function renderNgListInto(checklist){
-  renderFilteredListInto(checklist, e=>e.ng||e.vendorConfirm, '접수된 항목이 없습니다.');
+function renderNgListInto(checklist, unitId){
+  renderFilteredListInto(checklist, e=>e.ng||e.vendorConfirm, '접수된 항목이 없습니다.', unitId);
 }
 function openNgListModal(){
   if(!currentData) return;
@@ -1791,14 +2190,14 @@ function openNgListModal(){
 }
 function openProgressListModal(){
   if(!currentData) return;
-  document.querySelector('#ng-list-modal h3').textContent = '보수중 항목 목록';
+  document.querySelector('#ng-list-modal h3').textContent = '보수처리중 항목 목록';
   const isProgress = (e) => {
     if(!e || e.done) return false;
     if(e.progress) return true;
     if(e.coop && (e.coop.건축 || e.coop.기계 || e.coop.전기)) return true;
     return false;
   };
-  renderFilteredListInto(currentData.checklist || {}, isProgress, '보수중인 항목이 없습니다.');
+  renderFilteredListInto(currentData.checklist || {}, isProgress, '보수처리중인 항목이 없습니다.');
   document.getElementById('ng-list-modal').classList.add('show');
 }
 function openDoneListModal(){
@@ -1807,31 +2206,43 @@ function openDoneListModal(){
   renderFilteredListInto(currentData.checklist || {}, e=>e&&e.done, '보수완료된 항목이 없습니다.');
   document.getElementById('ng-list-modal').classList.add('show');
 }
+function openRejectedListModal(){
+  if(!currentData) return;
+  document.querySelector('#ng-list-modal h3').textContent = '업체반려 항목 목록';
+  renderFilteredListInto(currentData.checklist || {}, e=>e&&e.doneStatus==='rejected', '업체반려된 항목이 없습니다.');
+  document.getElementById('ng-list-modal').classList.add('show');
+}
+function openUnacceptableListModal(){
+  if(!currentData) return;
+  document.querySelector('#ng-list-modal h3').textContent = '수용불가 항목 목록';
+  renderFilteredListInto(currentData.checklist || {}, e=>e&&e.doneStatus==='unacceptable', '수용불가 항목이 없습니다.');
+  document.getElementById('ng-list-modal').classList.add('show');
+}
 function openUnitNgListModal(unitId){
   const data = loadUnitData(unitId);
   if(!data) return;
   document.querySelector('#ng-list-modal h3').textContent = '접수 항목 목록';
-  renderNgListInto(data.checklist || {});
+  renderNgListInto(data.checklist || {}, unitId);
   document.getElementById('ng-list-modal').classList.add('show');
 }
 function openUnitProgressListModal(unitId){
   const data = loadUnitData(unitId);
   if(!data) return;
-  document.querySelector('#ng-list-modal h3').textContent = '보수중 항목 목록';
+  document.querySelector('#ng-list-modal h3').textContent = '보수처리중 항목 목록';
   const isProgress = (e) => {
     if(!e || e.done) return false;
     if(e.progress) return true;
     if(e.coop && (e.coop.건축 || e.coop.기계 || e.coop.전기)) return true;
     return false;
   };
-  renderFilteredListInto(data.checklist || {}, isProgress, '보수중인 항목이 없습니다.');
+  renderFilteredListInto(data.checklist || {}, isProgress, '보수처리중인 항목이 없습니다.', unitId);
   document.getElementById('ng-list-modal').classList.add('show');
 }
 function openUnitDoneListModal(unitId){
   const data = loadUnitData(unitId);
   if(!data) return;
   document.querySelector('#ng-list-modal h3').textContent = '보수완료 항목 목록';
-  renderFilteredListInto(data.checklist || {}, e=>e&&e.done, '보수완료된 항목이 없습니다.');
+  renderFilteredListInto(data.checklist || {}, e=>e&&e.done, '보수완료된 항목이 없습니다.', unitId);
   document.getElementById('ng-list-modal').classList.add('show');
 }
 function closeNgListModal(){
