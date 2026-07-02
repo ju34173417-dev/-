@@ -812,10 +812,6 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
       <label>비밀번호 (숫자 4자리)</label>
       <input type="password" inputmode="numeric" maxlength="4" id="set-pw-input1" placeholder="••••">
     </div>
-    <div class="modal-field">
-      <label>비밀번호 확인</label>
-      <input type="password" inputmode="numeric" maxlength="4" id="set-pw-input2" placeholder="••••">
-    </div>
     <div class="modal-error" id="set-pw-error"></div>
     <div class="modal-actions">
       <button class="modal-cancel" onclick="closeSetComplexPasswordModal()">취소</button>
@@ -1509,7 +1505,6 @@ function openSetComplexPasswordModal(complex, unitLabel, tenant){
   pendingComplexSetup = { complex, unitLabel, tenant };
   document.getElementById('set-pw-complex-name').textContent = complex;
   document.getElementById('set-pw-input1').value = '';
-  document.getElementById('set-pw-input2').value = '';
   document.getElementById('set-pw-error').style.display = 'none';
   document.getElementById('set-complex-pw-modal').classList.add('show');
   setTimeout(()=>{ document.getElementById('set-pw-input1').focus(); }, 80);
@@ -1520,15 +1515,9 @@ function closeSetComplexPasswordModal(){
 }
 async function confirmSetComplexPassword(){
   const pw1 = document.getElementById('set-pw-input1').value.trim();
-  const pw2 = document.getElementById('set-pw-input2').value.trim();
   const errEl = document.getElementById('set-pw-error');
   if(!/^\d{4}$/.test(pw1)){
     errEl.textContent = '숫자 4자리로 입력해주세요.';
-    errEl.style.display = 'block';
-    return;
-  }
-  if(pw1 !== pw2){
-    errEl.textContent = '비밀번호가 서로 일치하지 않습니다.';
     errEl.style.display = 'block';
     return;
   }
@@ -1553,11 +1542,14 @@ function requireComplexUnlock(complex, callback){
     callback();
     return;
   }
+  // 이미 같은 단지에 대한 확인 팝업이 열려있으면 중복으로 다시 열지 않음
+  const modalEl = document.getElementById('unlock-complex-pw-modal');
+  if(modalEl.classList.contains('show')) return;
   pendingComplexUnlock = { complex, callback };
   document.getElementById('unlock-pw-complex-name').textContent = complex;
   document.getElementById('unlock-pw-input').value = '';
   document.getElementById('unlock-pw-error').style.display = 'none';
-  document.getElementById('unlock-complex-pw-modal').classList.add('show');
+  modalEl.classList.add('show');
   setTimeout(()=>{ document.getElementById('unlock-pw-input').focus(); }, 80);
 }
 function closeUnlockComplexPasswordModal(){
