@@ -685,7 +685,7 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
             <span class="dong-ho-suffix">호</span>
           </div>
         </div>
-        <div class="hrow"><span class="hlabel">COTIS(관리소)</span><input class="hval hval-strong" id="f-inspect" type="date" oninput="saveCurrentUnit()"></div>
+        <div class="hrow"><span class="hlabel">COTIS등록일(관리소)</span><input class="hval hval-strong" id="f-inspect" type="date" oninput="saveCurrentUnit()"></div>
         <div class="hrow"><span class="hlabel">퇴거일</span><input class="hval hval-strong" id="f-moveout" type="date" oninput="saveCurrentUnit()"></div>
       </div>
     </div>
@@ -740,7 +740,8 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
       <div class="modal-field" style="position:relative">
         <label>단지명</label>
         <input type="text" id="nu-complex" placeholder="단지명을 선택하거나 입력해주세요" autocomplete="off"
-          onfocus="showComplexOptions()" onclick="showComplexOptions()" oninput="filterComplexOptions()" onblur="setTimeout(hideComplexOptions, 150)">
+          onfocus="showComplexOptions()" onclick="showComplexOptions()" oninput="filterComplexOptions()" onblur="setTimeout(hideComplexOptions, 150)"
+          onkeydown="if(event.key==='Enter'){event.preventDefault(); hideComplexOptions(); document.getElementById('nu-dong').focus();}">
         <div id="complex-options-list" class="complex-options-list" style="display:none"></div>
       </div>
       <div class="modal-field">
@@ -1200,6 +1201,7 @@ function filterComplexOptions(){
 function selectComplexOption(name){
   document.getElementById('nu-complex').value = name;
   hideComplexOptions();
+  document.getElementById('nu-dong').focus();
 }
 function hideComplexOptions(){
   document.getElementById('complex-options-list').style.display = 'none';
@@ -1372,7 +1374,7 @@ function renderUnitCard(u, displayNumber){
           </div>`;
           })() : ''}
           ${(u.data.moveoutDate || u.data.inspectDate) ? `<div class="unit-date-row">
-            ${u.data.inspectDate ? `<div class="unit-moveout-row"><i class="ti ti-clipboard-check"></i> COTIS(관리소) : ${escapeHtml(u.data.inspectDate)}</div>` : ''}
+            ${u.data.inspectDate ? `<div class="unit-moveout-row"><i class="ti ti-clipboard-check"></i> COTIS등록일(관리소) : ${escapeHtml(u.data.inspectDate)}</div>` : ''}
             ${u.data.moveoutDate ? `<div class="unit-moveout-row"><i class="ti ti-calendar-event"></i> 퇴거일 : ${escapeHtml(u.data.moveoutDate)}</div>` : ''}
           </div>` : ''}
           ${overdueWarningItems.length > 0 ? `<div class="unit-overdue-warning-box">
@@ -1444,7 +1446,7 @@ function openNewUnitModal(){
   document.getElementById('nu-ho').value='';
   document.getElementById('nu-complex').value = getComplexName();
   document.getElementById('new-unit-modal').classList.add('show');
-  setTimeout(()=>{ document.getElementById('nu-dong').focus(); }, 80);
+  setTimeout(()=>{ document.getElementById('nu-complex').focus(); }, 80);
 }
 function closeNewUnitModal(){
   document.getElementById('new-unit-modal').classList.remove('show');
@@ -1497,7 +1499,7 @@ async function createNewUnit(){
 
   closeNewUnitModal();
   refreshUnitsFromStorage();
-  openUnit(unitId);
+  openUnitInternal(unitId);
   showToast('세대가 등록되었습니다');
 }
 
