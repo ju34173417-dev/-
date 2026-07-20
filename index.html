@@ -453,11 +453,15 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .sec-head-green{background:#E5F2DD}
 .sec-head i.sec-icon{font-size:16px;color:#7A2E3A;margin-right:6px}
 .sec-badge{font-size:11px;font-weight:400;color:#000000}
+.item-coop-step-role.role-mech{color:#0C447C;background:#E6F1FB}
+.item-coop-step-role.role-arch{color:#27500A;background:#EAF3DE}
+.item-coop-step-role.role-elec{color:#854F0B;background:#FAEEDA}
+
 .sec-chevron{transition:transform .15s}
 .sec-head.collapsed .sec-chevron{transform:rotate(-90deg)}
 
 .item-row{
-  display:grid;grid-template-columns:124px 90px 70px minmax(170px, 1fr) 90px 150px 100px;
+  display:grid;grid-template-columns:124px 90px 70px minmax(170px, 1fr) 80px 90px 130px 100px;
   gap:0;border-top:1px solid #E4E1D6;font-size:12px;align-items:stretch;
 }
 .item-row:first-of-type{border-top:none}
@@ -498,31 +502,27 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .note-input-vendor::placeholder{color:#7A4A0A;font-weight:700}
 .note-input-vendor:focus{background:rgba(181,101,15,0.08)}
 .item-repair{padding:4px 6px;border-left:1px solid #E4E1D6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.item-cell-empty{background:#F4F2EA}
 .item-repair input[type=checkbox]{width:17px;height:17px;cursor:pointer}
 .item-repair span{font-size:9px;font-weight:700;color:#7A4A0A}
-.item-coop{display:flex;flex-direction:column;align-items:stretch;justify-content:center;padding:4px 4px;border-left:1px solid #E4E1D6;gap:4px}
-.coop-opts-row{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:4px}
-.coop-note-row{width:100%;display:flex;align-items:center;gap:4px;margin-top:2px}
-.coop-note-label{font-size:8.5px;font-weight:700;color:#7A4A0A;flex-shrink:0;min-width:18px;text-align:center}
-.coop-note-input{
-  width:100%;font-size:8.5px;font-weight:600;padding:3px 4px;border:1.5px solid #E8A33D;border-radius:5px;
-  background:#FFF3D6;color:#7A4A0A;outline:none;box-shadow:0 1px 3px rgba(229,156,40,0.35);box-sizing:border-box;
+.item-coop-cell{
+  display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:4px;
+  padding:5px 5px;border-left:1px solid #E4E1D6;background:#FBFAF6;
 }
-.coop-note-input:focus{border-color:#B5650F;background:#FFE9B8}
-.coop-note-input::placeholder{color:#B5650F;opacity:0.8;font-weight:500}
-.coop-opt{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:center;gap:3px;width:100%}
-.coop-opt input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-color:#7A4A0A;flex-shrink:0}
-.coop-opt span{font-size:8.5px;color:#7A4A0A;font-weight:700;flex-shrink:0}
-.coop-confirm-done-box{
-  display:flex;align-items:center;gap:6px;padding:3px 6px;flex-shrink:0;
-  border:1px solid #D2CDBC;border-radius:7px;background:#FBFAF6;
+.item-coop-step-line{
+  display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 3px;
+  border:1px solid #E0C68F;border-radius:6px;background:#FFFFFF;
 }
-.coop-confirm-mini{display:flex;flex-direction:column;align-items:center;gap:1px;cursor:pointer}
-.coop-confirm-mini input[type=checkbox]{width:13px;height:13px;cursor:pointer;accent-color:#B5650F}
-.coop-confirm-mini span{font-size:7.5px;color:#9A5C12;font-weight:700}
-.coop-done-mini{display:flex;flex-direction:column;align-items:center;gap:1px;cursor:pointer}
-.coop-done-mini input[type=checkbox]{width:13px;height:13px;cursor:pointer;accent-color:#1F6B3A}
-.coop-done-mini span{font-size:7.5px;color:#1F6B3A;font-weight:700}
+.item-coop-step-role{font-size:9px;font-weight:800;padding:1px 6px;border-radius:5px}
+.item-coop-step-role-sub{font-weight:600;opacity:0.75}
+.item-coop-step-role.role-mech{color:#0C447C;background:#E6F1FB}
+.item-coop-step-role.role-arch{color:#27500A;background:#EAF3DE}
+.item-coop-step-role.role-elec{color:#854F0B;background:#FAEEDA}
+.item-coop-step-group{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%}
+.item-coop-step-check{display:flex;flex-direction:column;align-items:center;gap:1px;cursor:pointer;padding:2px 0}
+.item-coop-step-check:not(:last-child){padding-bottom:4px;border-bottom:1px dashed #E4E1D6}
+.item-coop-step-check input[type=checkbox]{width:15px;height:15px;cursor:pointer;flex-shrink:0}
+.item-coop-step-check span{font-size:10px;font-weight:600;color:#26241D;text-align:center;line-height:1.25}
 .coop-mini-date{font-size:6.5px;color:#6B6754;font-weight:600;white-space:nowrap}
 .item-done{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px;border-left:1px solid #E4E1D6;gap:3px}
 .done-badge{font-size:10px;padding:3px 8px;border-radius:99px;font-weight:700;cursor:pointer;white-space:nowrap}
@@ -550,7 +550,7 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .done-note-input:focus{border-color:#7A2E3A}
 
 .col-header{
-  display:grid;grid-template-columns:124px 90px 70px minmax(170px, 1fr) 90px 150px 100px;
+  display:grid;grid-template-columns:124px 90px 70px minmax(170px, 1fr) 80px 90px 130px 100px;
   gap:0;border-top:1px solid #E4E1D6;font-size:10.5px;font-weight:600;
 }
 .col-header div{padding:5px 6px;text-align:center;line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center}
@@ -565,6 +565,16 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .item-vendor-confirm{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 2px;border-left:1px solid #E4E1D6}
 .item-vendor-confirm input[type=checkbox]{width:17px;height:17px;cursor:pointer;accent-color:#B5650F}
 .item-vendor-confirm span{font-size:9px;margin-top:2px;text-align:center;line-height:1.2;font-weight:700;color:#7A4A0A}
+.item-checklist-confirm{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 2px;border-left:1px solid #E4E1D6;gap:2px}
+.item-checklist-confirm input[type=checkbox]{width:17px;height:17px;cursor:pointer;accent-color:#B5650F}
+.item-checklist-confirm span{font-size:9px;margin-top:2px;text-align:center;line-height:1.2;font-weight:700;color:#7A4A0A}
+.demolish-row{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;margin-top:4px;padding-top:4px;border-top:1px dashed #E0C68F}
+.demolish-row input[type=checkbox]{width:17px;height:17px;cursor:pointer;accent-color:#A32D2D}
+.demolish-row span{font-size:9px;margin-top:2px;text-align:center;line-height:1.2;font-weight:700;color:#A32D2D}
+.demolish-row-standalone{margin-top:0;padding-top:0;border-top:none}
+.attach-row{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;margin-top:6px;padding-top:6px;border-top:1px dashed #B8D4C2}
+.attach-row input[type=checkbox]{width:17px;height:17px;cursor:pointer;accent-color:#1F6B3A}
+.attach-row span{font-size:9px;margin-top:2px;text-align:center;line-height:1.2;font-weight:700;color:#1F6B3A}
 
 .note-area{margin-bottom:16px;background:#FFFFFF;border:1px solid #E4E1D6;border-radius:14px;padding:14px}
 .note-area .label{font-size:13px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
@@ -575,7 +585,7 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .note-area textarea:focus{border-color:#7A2E3A}
 
 .scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
-.scroll-x .item-row,.scroll-x .col-header{min-width:794px}
+.scroll-x .item-row,.scroll-x .col-header{min-width:854px}
 .scroll-hint{font-size:11px;color:#000000;text-align:center;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:4px}
 .custom-scrollbar-track{
   position:relative;height:10px;background:#E4E1D6;border-radius:99px;margin:8px 0 16px;cursor:pointer;display:block;
@@ -846,21 +856,86 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 <script>
 const SECTIONS = [
   {name:'공통', icon:'ti-home', items:['도배','장판']},
-  {name:'현관', icon:'ti-door-enter', items:['현관문','도어록','현관철물','바닥타일','신발장','인터폰','분전함','센서등','소화기']},
-  {name:'주방', icon:'ti-chef-hat', items:['주방가구','렌지후드','수전','배수구','타일','창호·방충망']},
-  {name:'거실', icon:'ti-sofa', items:['비디오폰','온도조절기','거실등','발코니문']},
+  {name:'현관', icon:'ti-door-enter', items:['현관문','도어록','현관철물','바닥타일','신발장','인터폰','분전함','센서등','콘센트','소화기']},
+  {name:'주방', icon:'ti-chef-hat', items:['주방가구','렌지후드','수전','배수구','타일','창호·방충망','콘센트']},
+  {name:'거실', icon:'ti-sofa', items:['비디오폰','온도조절기','거실등','발코니문','콘센트']},
   {name:'발코니', icon:'ti-building', items:['선반','난간대','수전','배수구','스프레이건','바닥타일','창호·방충망']},
   {name:'침실', icon:'ti-bed', items:['출입문','도어록','온도조절기','반침장','창호','발코니문']},
   {name:'욕실', icon:'ti-bath', items:['욕실문','도어록','환풍기','수건걸이','휴지걸이','수전류','배수구','타일','욕조','도기류','수납장','거울']},
   {name:'빌트인 (해당 시)', icon:'ti-device-tv', items:['TV','냉장고','세탁기','에어컨','전자렌지','인덕션','비데','식기세척기','식기건조기','주방TV','음식물탈수기','책상','의자','침대']},
 ];
 const COOP_TYPES = ['건축','기계','전기'];
+
+// 항목별 좌/우 협조 단계 (엑셀 공정표 기준: 보수진행 칸을 중심으로 좌측→우측 순서)
+// key: '섹션명-항목명', value: [{role, text}, {role, text}, ...] (2~3단계)
+const ITEM_COOP_STEPS = {
+  '주방-주방가구': [
+    { role: '설비', text: '수전·악세사리 철거' },
+    { role: '건축', text: '가구 교체' },
+    { role: '설비', text: '수전·악세사리 재설치' },
+  ],
+  '주방-렌지후드': [
+    { role: '설비', text: '렌지후드 철거' },
+    { role: '설비', text: '렌지후드 설치' },
+  ],
+  '주방-타일': [
+    { role: '설비', text: '주방수전 철거' },
+    { role: '건축', text: '주방타일 교체' },
+    { role: '설비', text: '주방수전 재설치' },
+  ],
+  '발코니-수전': [
+    { role: '설비', text: '발코니수전 철거' },
+    { role: '건축', text: '발코니 도장완료' },
+  ],
+  '욕실-타일': [
+    { role: '설비', text: '욕실수전·악세사리 철거' },
+    { role: '건축', text: '욕실타일 교체' },
+    { role: '설비', text: '욕실수전·악세사리 재설치' },
+  ],
+  '욕실-욕조': [
+    { role: '설비', text: '욕조 철거' },
+    { role: '건축', text: '욕조 바닥 방수 및 타일보수' },
+    { role: '설비', text: '욕조 재설치' },
+  ],
+  '공통-도배': [
+    { role: '전기', text: '분전반·등기구·콘센트 철거' },
+    { role: '건축', text: '도배·장판 완료' },
+    { role: '전기', text: '분전반·등기구·콘센트 재설치' },
+  ],
+  '공통-장판': [
+    { role: '전기', text: '분전반·등기구·콘센트 철거' },
+    { role: '건축', text: '도배·장판 완료' },
+    { role: '전기', text: '분전반·등기구·콘센트 재설치' },
+  ],
+};
+function getItemCoopSteps(secName, item){
+  return ITEM_COOP_STEPS[`${secName}-${item}`] || null;
+}
+function getItemCoopStepsSortedForDisplay(secName, item){
+  const steps = getItemCoopSteps(secName, item);
+  if(!steps) return null;
+  // 욕실 항목은 실제 작업 순서(철거→교체→재설치)가 중요하므로 원본 순서를 그대로 유지
+  if(secName === '욕실'){
+    return steps.map((step, originalIdx) => ({ ...step, originalIdx }));
+  }
+  const roleOrder = { '건축':0, '설비':1, '전기':2, '기계':1 };
+  // 그 외 항목은 원래 인덱스(체크 상태 저장용 키에 사용)를 보존한 채 공종별로 재정렬
+  return steps
+    .map((step, originalIdx) => ({ ...step, originalIdx }))
+    .sort((a, b) => (roleOrder[a.role] ?? 9) - (roleOrder[b.role] ?? 9));
+}
+function getItemCoopStepKey(secName, item, stepIdx){
+  return `${secName}-${item}`.concat('__coopstep__', stepIdx);
+}
+
+// 타공정협조가 실제로 필요한 섹션만 명시 (엑셀 공정표 기준: 공통(도배/장판), 주방, 발코니, 욕실)
+const COOP_ENABLED_SECTIONS = new Set(['공통', '주방', '발코니', '욕실']);
 const MECHANICAL_ITEMS = new Set([
   '소화기','렌지후드','수전','수전류','배수구','온도조절기','스프레이건','환풍기',
   '수건걸이','휴지걸이','욕조','도기류','수납장'
 ]);
 const ELECTRICAL_ITEMS = new Set([
-  '인터폰','분전함','센서등','비디오폰','거실등'
+  '인터폰','분전함','센서등','비디오폰','거실등','콘센트'
 ]);
 const STORAGE_PREFIX = 'unit_checklist_v1:';
 const INDEX_KEY = 'unit_checklist_v1_index';
@@ -1021,13 +1096,13 @@ function emptyChecklistState(){
   const state = {};
   SECTIONS.forEach(sec=>{
     sec.items.forEach(item=>{
-      state[`${sec.name}-${item}`] = {ok:false, ng:false, note:'', vendorNote:'', vendorConfirm:false, progress:false, coop:{건축:false,기계:false,전기:false}, coopConfirmDate:{}, coopDoneDate:{}, done:false, doneStatus:'pending', doneNote:''};
+      state[`${sec.name}-${item}`] = {ok:false, ng:false, note:'', vendorNote:'', vendorConfirm:false, checklistConfirm:false, checklistConfirmDate:'', demolished:false, demolishedDate:'', attached:false, attachedDate:'', progress:false, coop:{건축:false,기계:false,전기:false}, coopConfirmDate:{}, coopDoneDate:{}, done:false, doneStatus:'pending', doneNote:''};
     });
   });
   return state;
 }
 function emptyUnitData(unitLabel, tenant, complex){
-  return {unitLabel:unitLabel||'', complex: (complex!==undefined ? complex : getComplexName()), tenant:tenant||'', contractDate:'', moveinDate:'', inspectDate:'', moveoutDate:'', memo:'', mgmtLocked:false, fullyDoneSince:null, createdAt:Date.now(), checklist:emptyChecklistState(), updatedAt:Date.now()};
+  return {unitLabel:unitLabel||'', complex: (complex!==undefined ? complex : getComplexName()), tenant:tenant||'', contractDate:'', moveinDate:'', inspectDate:'', moveoutDate:'', memo:'', mgmtLocked:false, fullyDoneSince:null, createdAt:Date.now(), checklist:emptyChecklistState(), coopProcedures:{}, updatedAt:Date.now()};
 }
 
 async function refreshUnitsFromStorage(){
@@ -1727,6 +1802,12 @@ function getEntry(sec,item){
   if(currentData.checklist[k].doneStatus === undefined) currentData.checklist[k].doneStatus = currentData.checklist[k].done ? 'done' : 'pending';
   if(currentData.checklist[k].doneNote === undefined) currentData.checklist[k].doneNote = '';
   if(currentData.checklist[k].vendorNote === undefined) currentData.checklist[k].vendorNote = '';
+  if(currentData.checklist[k].checklistConfirm === undefined) currentData.checklist[k].checklistConfirm = false;
+  if(currentData.checklist[k].checklistConfirmDate === undefined) currentData.checklist[k].checklistConfirmDate = '';
+  if(currentData.checklist[k].demolished === undefined) currentData.checklist[k].demolished = false;
+  if(currentData.checklist[k].demolishedDate === undefined) currentData.checklist[k].demolishedDate = '';
+  if(currentData.checklist[k].attached === undefined) currentData.checklist[k].attached = false;
+  if(currentData.checklist[k].attachedDate === undefined) currentData.checklist[k].attachedDate = '';
   return currentData.checklist[k];
 }
 function todayDateStr(){
@@ -1766,6 +1847,47 @@ function toggleVendorConfirm(sec,item){
   logHistory(item, e.vendorConfirm ? '보수업체(필요시) 체크' : '보수업체(필요시) 체크 해제');
   renderChecklist(); saveCurrentUnit();
 }
+function toggleChecklistConfirm(sec,item){
+  const e=getEntry(sec,item);
+  e.checklistConfirm=!e.checklistConfirm;
+  e.checklistConfirmDate = e.checklistConfirm ? todayDateStr() : '';
+  logHistory(item, e.checklistConfirm ? '세대점검표 확인' : '세대점검표 확인 해제');
+  renderChecklist(); saveCurrentUnit();
+}
+function toggleDemolished(sec,item){
+  const e=getEntry(sec,item);
+  e.demolished=!e.demolished;
+  e.demolishedDate = e.demolished ? todayDateStr() : '';
+  logHistory(item, e.demolished ? '철거 체크' : '철거 체크 해제');
+  renderChecklist(); saveCurrentUnit();
+}
+function toggleAttached(sec,item){
+  const e=getEntry(sec,item);
+  e.attached=!e.attached;
+  e.attachedDate = e.attached ? todayDateStr() : '';
+  logHistory(item, e.attached ? '부착완료 체크' : '부착완료 체크 해제');
+  renderChecklist(); saveCurrentUnit();
+}
+
+// ===== 항목별 좌/우 협조 단계 (보수진행 칸 좌우) =====
+function getItemCoopStepEntry(secName, item, stepIdx){
+  if(!currentData.itemCoopSteps) currentData.itemCoopSteps = {};
+  const key = getItemCoopStepKey(secName, item, stepIdx);
+  if(!currentData.itemCoopSteps[key]){
+    currentData.itemCoopSteps[key] = { done:false, doneDate:'' };
+  }
+  return currentData.itemCoopSteps[key];
+}
+function toggleItemCoopStep(secName, item, stepIdx){
+  const e = getItemCoopStepEntry(secName, item, stepIdx);
+  e.done = !e.done;
+  e.doneDate = e.done ? todayDateStr() : '';
+  const steps = getItemCoopSteps(secName, item);
+  const step = steps[stepIdx];
+  logHistory(item, `(${step.role}) ${step.text} ${e.done ? '완료' : '완료 취소'}`);
+  renderChecklist(); saveCurrentUnit();
+}
+
 function toggleProgress(sec,item){
   const e=getEntry(sec,item);
   e.progress=!e.progress;
@@ -1834,48 +1956,6 @@ function getCoopTypeCategoryName(type){
   if(type === '전기') return '전기공사';
   if(type === '건축') return '건축공사';
   return type;
-}
-
-function renderCoopActiveList(){
-  const box = document.getElementById('coop-active-list');
-  if(!currentData || !currentData.checklist){ box.style.display='none'; return; }
-  const checklist = currentData.checklist;
-  const items = Object.keys(checklist)
-    .filter(k => {
-      const e = checklist[k];
-      if(!e) return false;
-      return e.coop && (e.coop.건축 || e.coop.기계 || e.coop.전기);
-    })
-    .map(k => {
-      const idx = k.indexOf('-');
-      const sec = k.slice(0, idx);
-      const item = k.slice(idx+1);
-      const e = checklist[k];
-      const types = COOP_TYPES.filter(t => e.coop[t]);
-      const categoryTag = getItemCategoryTag(item, sec);
-      return { sec, item, types, coopNotes: e.coopNotes || {}, coopConfirm: e.coopConfirm || {}, coopDone: e.coopDone || {}, done: e.done, categoryTag };
-    });
-
-  if(items.length === 0){ box.style.display='none'; box.innerHTML=''; return; }
-
-  box.style.display = 'block';
-  box.innerHTML = `
-    <div class="coop-active-card">
-      <div class="coop-active-title"><i class="ti ti-tools"></i> 타공정협조 요청 항목</div>
-      <div class="coop-active-list">
-        ${items.map(it => `
-          <div class="coop-active-item">
-            <div class="coop-active-line">
-              <span class="coop-active-line-tag tag-request">[요청공정]</span> ${escapeHtml(it.categoryTag)}(${escapeHtml(it.item)})
-              <i class="ti ti-arrow-right coop-active-arrow-icon"></i>
-              <span class="coop-active-line-tag tag-target">[요청항목]</span>
-              ${it.types.map(t => `${escapeHtml(getCoopTypeCategoryName(t))} 중${it.coopNotes[t] ? ' ' + escapeHtml(it.coopNotes[t]) : ''} 요청${it.coopDone[t] ? ' <span class="coop-active-mini-done">(완료)</span>' : (it.coopConfirm[t] ? ' <span class="coop-active-mini-confirm">(업체확인)</span>' : '')}`).join(', ')}
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `;
 }
 
 function renderRejectedActiveList(){
@@ -1962,39 +2042,65 @@ function renderChecklist(){
             <input class="note-input-vendor" placeholder="(보수업체) 내용입력" value="${escapeHtml(e.vendorNote||'')}" oninput="setVendorNoteValue('${sec.name}','${item}',this.value)">
           </div>
         </div>
-        <div class="item-repair zone-vendor">
-          <input type="checkbox" ${e.progress?'checked':''} ${disabled?'disabled':''} onclick="${disabled?'':`toggleProgress('${sec.name}','${item}')`}" style="${disabled?'opacity:0.35':''}">
-          <span style="${disabled?'opacity:0.35':''}">${e.doneStatus==='rejected'?'업체반려':(e.doneStatus==='unacceptable'?'수용불가':(e.progress?'보수처리중':'보수미확인'))}</span>
-          ${e.progressDate ? `<span class="item-date-tag">${e.progressDate}</span>` : ''}
+        <div class="item-checklist-confirm zone-vendor${getItemCoopSteps(sec.name, item) ? ' item-cell-empty' : ''}">
+          ${getItemCoopSteps(sec.name, item) ? '' : (ELECTRICAL_ITEMS.has(item) ? `
+            <div class="demolish-row demolish-row-standalone">
+              <input type="checkbox" ${e.demolished?'checked':''} onclick="toggleDemolished('${sec.name}','${item}')">
+              <span>철거</span>
+              ${e.demolishedDate ? `<span class="item-date-tag">${e.demolishedDate}</span>` : ''}
+            </div>
+          ` : `
+            <input type="checkbox" ${e.checklistConfirm?'checked':''} onclick="toggleChecklistConfirm('${sec.name}','${item}')">
+            <span>확인</span>
+            ${e.checklistConfirmDate ? `<span class="item-date-tag">${e.checklistConfirmDate}</span>` : ''}
+          `)}
         </div>
-        <div class="item-coop zone-coop">
-          <div class="coop-opts-row">
-            ${COOP_TYPES.map(t=>`
-              <div class="coop-opt">
-                <input type="checkbox" ${e.coop[t]?'checked':''} ${disabled?'disabled':''} onclick="${disabled?'':`toggleCoopType('${sec.name}','${item}','${t}')`}" style="${disabled?'opacity:0.35':''}">
-                <span style="${disabled?'opacity:0.35':''}">${t}</span>
-                ${e.coop[t] ? `
-                  <div class="coop-confirm-done-box">
-                    ${!e.coopDone[t] ? `
-                      <label class="coop-confirm-mini">
-                        <input type="checkbox" ${e.coopConfirm[t]?'checked':''} ${disabled?'disabled':''} onclick="${disabled?'':`toggleCoopConfirm('${sec.name}','${item}','${t}')`}" style="${disabled?'opacity:0.35':''}">
-                        <span style="${disabled?'opacity:0.35':''}">확인</span>
-                        ${e.coopConfirmDate && e.coopConfirmDate[t] ? `<span class="coop-mini-date">${e.coopConfirmDate[t]}</span>` : ''}
-                      </label>
-                    ` : ''}
-                    <label class="coop-done-mini">
-                      <input type="checkbox" ${e.coopDone[t]?'checked':''} ${disabled?'disabled':''} onclick="${disabled?'':`toggleCoopDone('${sec.name}','${item}','${t}')`}" style="${disabled?'opacity:0.35':''}">
-                      <span style="${disabled?'opacity:0.35':''}">완료</span>
-                      ${e.coopDoneDate && e.coopDoneDate[t] ? `<span class="coop-mini-date">${e.coopDoneDate[t]}</span>` : ''}
-                    </label>
-                  </div>
-                  <div class="coop-note-row">
-                    <input class="coop-note-input" placeholder="${t} 협조 내용 입력" value="${escapeHtml(e.coopNotes[t]||'')}" ${disabled?'disabled':''} oninput="${disabled?'':`setCoopNote('${sec.name}','${item}','${t}',this.value)`}" style="${disabled?'opacity:0.6':''}">
-                  </div>
-                ` : ''}
-              </div>
-            `).join('')}
-          </div>
+        <div class="item-repair zone-vendor${getItemCoopSteps(sec.name, item) ? ' item-cell-empty' : ''}">
+          ${getItemCoopSteps(sec.name, item) ? '' : `
+            <input type="checkbox" ${e.progress?'checked':''} ${disabled?'disabled':''} onclick="${disabled?'':`toggleProgress('${sec.name}','${item}')`}" style="${disabled?'opacity:0.35':''}">
+            <span style="${disabled?'opacity:0.35':''}">${e.doneStatus==='rejected'?'업체반려':(e.doneStatus==='unacceptable'?'수용불가':(e.progress?'보수처리중':'보수미확인'))}</span>
+            ${e.progressDate ? `<span class="item-date-tag">${e.progressDate}</span>` : ''}
+          `}
+        </div>
+        <div class="item-coop-cell">
+          ${(() => {
+            const steps = getItemCoopStepsSortedForDisplay(sec.name, item);
+            if(!steps) return '';
+            const roleClass = { '설비':'role-mech', '건축':'role-arch', '전기':'role-elec', '기계':'role-mech' };
+            // 공종과 무관하게, '철거' 단계는 모두 하나의 박스로, '설치/재설치' 등 나머지 단계도 모두 하나의 박스로 묶음
+            // (같은 항목 안에서 등장 순서 기준으로 철거 그룹이 먼저면 철거 박스가 먼저 나옴)
+            const isRemoval = (text) => /철거/.test(text);
+            const groups = [];
+            const groupIndexByKey = {};
+            steps.forEach(step => {
+              const kind = isRemoval(step.text) ? 'removal' : 'other';
+              if(!(kind in groupIndexByKey)){
+                groupIndexByKey[kind] = groups.length;
+                groups.push({ kind, roles: new Set(), items: [] });
+              }
+              const g = groups[groupIndexByKey[kind]];
+              g.roles.add(step.role);
+              g.items.push(step);
+            });
+            const kindLabel = { removal: '철거', other: '설치' };
+            groups.sort((a, b) => (a.kind === 'removal' ? 0 : 1) - (b.kind === 'removal' ? 0 : 1));
+            return groups.map(group => {
+              const itemsHtml = group.items.map(step => {
+                const se = getItemCoopStepEntry(sec.name, item, step.originalIdx);
+                return `<label class="item-coop-step-check">
+                  <input type="checkbox" ${se.done?'checked':''} onclick="toggleItemCoopStep('${sec.name}','${item}',${step.originalIdx})">
+                  <span>${escapeHtml(step.text)}</span>
+                  ${se.doneDate ? `<span class="item-date-tag">${se.doneDate}</span>` : ''}
+                </label>`;
+              }).join('');
+              const rolesText = Array.from(group.roles).join('·');
+              const primaryRole = Array.from(group.roles)[0];
+              return `<div class="item-coop-step-line">
+                <span class="item-coop-step-role ${roleClass[primaryRole]||''}">${escapeHtml(kindLabel[group.kind])} <span class="item-coop-step-role-sub">(${escapeHtml(rolesText)})</span></span>
+                <div class="item-coop-step-group">${itemsHtml}</div>
+              </div>`;
+            }).join('');
+          })()}
         </div>
         <div class="item-done zone-vendor">
           <div class="done-status-group">
@@ -2010,6 +2116,13 @@ function renderChecklist(){
           ${e.doneDate ? `<span class="item-date-tag">${e.doneDate}</span>` : ''}
           ${(e.doneStatus==='rejected' || e.doneStatus==='unacceptable') ? `
             <input class="done-note-input" placeholder="사유를 입력해주세요" value="${escapeHtml(e.doneNote||'')}" oninput="setDoneNote('${sec.name}','${item}',this.value)">
+          ` : ''}
+          ${(e.doneStatus==='done' && ELECTRICAL_ITEMS.has(item)) ? `
+            <div class="attach-row">
+              <input type="checkbox" ${e.attached?'checked':''} onclick="toggleAttached('${sec.name}','${item}')">
+              <span>부착완료</span>
+              ${e.attachedDate ? `<span class="item-date-tag">${e.attachedDate}</span>` : ''}
+            </div>
           ` : ''}
         </div>
       </div>`;
@@ -2029,8 +2142,9 @@ function renderChecklist(){
           <div class="h-mgmt" style="text-align:center">이상유<span class="col-sub">(관리소 확인)</span></div>
           <div class="h-vendor">보수업체<br>(필요시)</div>
           <div class="h-mgmt">내용</div>
+          <div class="h-vendor" style="text-align:center">세대점검표<span class="col-sub">(업체확인)</span></div>
           <div class="h-vendor">보수진행<br>(해당공정)<span class="col-sub">업체확인</span></div>
-          <div class="h-coop">보수진행시<br>타공정 협조<br>(필요한 경우)<span class="col-sub">업체확인</span></div>
+          <div class="h-coop">협조공정</div>
           <div class="h-vendor" style="white-space:nowrap">해당보수완료<span class="col-sub">업체확인</span></div>
         </div>
         ${rows}
@@ -2039,7 +2153,6 @@ function renderChecklist(){
   }).join('');
 
   updateSummary();
-  renderCoopActiveList();
   renderRejectedActiveList();
   setupCustomScrollbar();
   updateMgmtLockButton();
