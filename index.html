@@ -468,6 +468,7 @@ button:active{transform:scale(0.94);filter:brightness(0.9)}
 .item-name{padding:9px 10px;color:#26241D;display:flex;align-items:center;gap:6px;font-size:16px;font-weight:500;flex-wrap:wrap}
 .mech-tag{font-size:10px;font-weight:700;color:#0C447C;background:#E6F1FB;border-radius:5px;padding:2px 6px;white-space:nowrap}
 .vendor-confirm-warning{font-size:11px;font-weight:900;color:#FFFFFF;background:#A32D2D;border-radius:5px;padding:2px 7px;white-space:nowrap;margin-left:2px}
+.item-done-tag{font-size:11px;font-weight:900;color:#FFFFFF;background:#1F6B3A;border-radius:5px;padding:2px 7px;white-space:nowrap;margin-left:2px}
 .elec-tag{font-size:10px;font-weight:700;color:#854F0B;background:#FAEEDA;border-radius:5px;padding:2px 6px;white-space:nowrap}
 .arch-tag{font-size:10px;font-weight:700;color:#27500A;background:#EAF3DE;border-radius:5px;padding:2px 6px;white-space:nowrap}
 
@@ -871,21 +872,23 @@ const COOP_TYPES = ['건축','기계','전기'];
 const ITEM_COOP_STEPS = {
   '주방-주방가구': [
     { role: '설비', text: '수전·악세사리 철거' },
-    { role: '건축', text: '가구 교체' },
+    { role: '건축', text: '가구보수완료' },
     { role: '설비', text: '수전·악세사리 재설치' },
   ],
   '주방-렌지후드': [
     { role: '설비', text: '렌지후드 철거' },
-    { role: '설비', text: '렌지후드 설치' },
+    { role: '건축', text: '가구공사완료' },
+    { role: '설비', text: '렌지후드 재설치' },
   ],
   '주방-타일': [
     { role: '설비', text: '주방수전 철거' },
-    { role: '건축', text: '주방타일 교체' },
+    { role: '건축', text: '타일보수완료' },
     { role: '설비', text: '주방수전 재설치' },
   ],
   '발코니-수전': [
     { role: '설비', text: '발코니수전 철거' },
     { role: '건축', text: '발코니 도장완료' },
+    { role: '설비', text: '발코니수전 재설치' },
   ],
   '욕실-타일': [
     { role: '설비', text: '욕실수전·악세사리 철거' },
@@ -894,7 +897,7 @@ const ITEM_COOP_STEPS = {
   ],
   '욕실-욕조': [
     { role: '설비', text: '욕조 철거' },
-    { role: '건축', text: '욕조 바닥 방수 및 타일보수' },
+    { role: '건축', text: '욕조 바닥 방수 및 타일보수 완료' },
     { role: '설비', text: '욕조 재설치' },
   ],
   '공통-도배': [
@@ -914,15 +917,8 @@ function getItemCoopSteps(secName, item){
 function getItemCoopStepsSortedForDisplay(secName, item){
   const steps = getItemCoopSteps(secName, item);
   if(!steps) return null;
-  // 욕실 항목은 실제 작업 순서(철거→교체→재설치)가 중요하므로 원본 순서를 그대로 유지
-  if(secName === '욕실'){
-    return steps.map((step, originalIdx) => ({ ...step, originalIdx }));
-  }
-  const roleOrder = { '건축':0, '설비':1, '전기':2, '기계':1 };
-  // 그 외 항목은 원래 인덱스(체크 상태 저장용 키에 사용)를 보존한 채 공종별로 재정렬
-  return steps
-    .map((step, originalIdx) => ({ ...step, originalIdx }))
-    .sort((a, b) => (roleOrder[a.role] ?? 9) - (roleOrder[b.role] ?? 9));
+  // 원본 데이터 순서(=실제 작업 순서)를 그대로 유지. 같은 공종끼리는 렌더링 시 하나의 박스로 묶임
+  return steps.map((step, originalIdx) => ({ ...step, originalIdx }));
 }
 function getItemCoopStepKey(secName, item, stepIdx){
   return `${secName}-${item}`.concat('__coopstep__', stepIdx);
@@ -2025,7 +2021,7 @@ function renderChecklist(){
       const isReceived = e.ng || e.vendorConfirm;
       const needsVendorConfirmAlert = registerOverdue && isReceived && !e.vendorConfirm && !e.done;
       return `<div class="item-row">
-        <div class="item-name">${escapeHtml(item)}${needsVendorConfirmAlert ? '<span class="vendor-confirm-warning">(경고)</span>' : ''}${MECHANICAL_ITEMS.has(item) ? '<span class="mech-tag">(기계공사)</span>' : ''}${ELECTRICAL_ITEMS.has(item) ? '<span class="elec-tag">(전기공사)</span>' : ''}${(sec.name !== '빌트인 (해당 시)' && !MECHANICAL_ITEMS.has(item) && !ELECTRICAL_ITEMS.has(item)) ? '<span class="arch-tag">(건축공사)</span>' : ''}</div>
+        <div class="item-name">${escapeHtml(item)}${e.doneStatus==='done' ? '<span class="item-done-tag">(완료)</span>' : ''}${needsVendorConfirmAlert ? '<span class="vendor-confirm-warning">(경고)</span>' : ''}${MECHANICAL_ITEMS.has(item) ? '<span class="mech-tag">(기계공사)</span>' : ''}${ELECTRICAL_ITEMS.has(item) ? '<span class="elec-tag">(전기공사)</span>' : ''}${(sec.name !== '빌트인 (해당 시)' && !MECHANICAL_ITEMS.has(item) && !ELECTRICAL_ITEMS.has(item)) ? '<span class="arch-tag">(건축공사)</span>' : ''}</div>
         <div class="item-check zone-mgmt">
           <input type="checkbox" ${e.ng?'checked':''} ${mgmtLocked?'disabled':''} onclick="${mgmtLocked?'':`toggleCheck('${sec.name}','${item}','ng')`}" style="${mgmtLocked?'opacity:1':''}">
           <span style="${mgmtLocked?'opacity:0.5':''}">이상유</span>
@@ -2042,18 +2038,19 @@ function renderChecklist(){
             <input class="note-input-vendor" placeholder="(보수업체) 내용입력" value="${escapeHtml(e.vendorNote||'')}" oninput="setVendorNoteValue('${sec.name}','${item}',this.value)">
           </div>
         </div>
-        <div class="item-checklist-confirm zone-vendor${getItemCoopSteps(sec.name, item) ? ' item-cell-empty' : ''}">
+        <div class="item-checklist-confirm zone-vendor${(getItemCoopSteps(sec.name, item) || !ELECTRICAL_ITEMS.has(item)) ? ' item-cell-empty' : ''}">
           ${getItemCoopSteps(sec.name, item) ? '' : (ELECTRICAL_ITEMS.has(item) ? `
             <div class="demolish-row demolish-row-standalone">
               <input type="checkbox" ${e.demolished?'checked':''} onclick="toggleDemolished('${sec.name}','${item}')">
               <span>철거</span>
               ${e.demolishedDate ? `<span class="item-date-tag">${e.demolishedDate}</span>` : ''}
             </div>
-          ` : `
-            <input type="checkbox" ${e.checklistConfirm?'checked':''} onclick="toggleChecklistConfirm('${sec.name}','${item}')">
-            <span>확인</span>
-            ${e.checklistConfirmDate ? `<span class="item-date-tag">${e.checklistConfirmDate}</span>` : ''}
-          `)}
+            <div class="attach-row">
+              <input type="checkbox" ${e.attached?'checked':''} onclick="toggleAttached('${sec.name}','${item}')">
+              <span>재설치</span>
+              ${e.attachedDate ? `<span class="item-date-tag">${e.attachedDate}</span>` : ''}
+            </div>
+          ` : '')}
         </div>
         <div class="item-repair zone-vendor${getItemCoopSteps(sec.name, item) ? ' item-cell-empty' : ''}">
           ${getItemCoopSteps(sec.name, item) ? '' : `
@@ -2067,23 +2064,16 @@ function renderChecklist(){
             const steps = getItemCoopStepsSortedForDisplay(sec.name, item);
             if(!steps) return '';
             const roleClass = { '설비':'role-mech', '건축':'role-arch', '전기':'role-elec', '기계':'role-mech' };
-            // 공종과 무관하게, '철거' 단계는 모두 하나의 박스로, '설치/재설치' 등 나머지 단계도 모두 하나의 박스로 묶음
-            // (같은 항목 안에서 등장 순서 기준으로 철거 그룹이 먼저면 철거 박스가 먼저 나옴)
-            const isRemoval = (text) => /철거/.test(text);
+            // 같은 공종(role)끼리 하나의 박스로 묶되, 그룹이 처음 등장하는 순서(=작업 순서)는 유지
             const groups = [];
-            const groupIndexByKey = {};
+            const groupIndexByRole = {};
             steps.forEach(step => {
-              const kind = isRemoval(step.text) ? 'removal' : 'other';
-              if(!(kind in groupIndexByKey)){
-                groupIndexByKey[kind] = groups.length;
-                groups.push({ kind, roles: new Set(), items: [] });
+              if(!(step.role in groupIndexByRole)){
+                groupIndexByRole[step.role] = groups.length;
+                groups.push({ role: step.role, items: [] });
               }
-              const g = groups[groupIndexByKey[kind]];
-              g.roles.add(step.role);
-              g.items.push(step);
+              groups[groupIndexByRole[step.role]].items.push(step);
             });
-            const kindLabel = { removal: '철거', other: '설치' };
-            groups.sort((a, b) => (a.kind === 'removal' ? 0 : 1) - (b.kind === 'removal' ? 0 : 1));
             return groups.map(group => {
               const itemsHtml = group.items.map(step => {
                 const se = getItemCoopStepEntry(sec.name, item, step.originalIdx);
@@ -2093,10 +2083,8 @@ function renderChecklist(){
                   ${se.doneDate ? `<span class="item-date-tag">${se.doneDate}</span>` : ''}
                 </label>`;
               }).join('');
-              const rolesText = Array.from(group.roles).join('·');
-              const primaryRole = Array.from(group.roles)[0];
               return `<div class="item-coop-step-line">
-                <span class="item-coop-step-role ${roleClass[primaryRole]||''}">${escapeHtml(kindLabel[group.kind])} <span class="item-coop-step-role-sub">(${escapeHtml(rolesText)})</span></span>
+                <span class="item-coop-step-role ${roleClass[group.role]||''}">${escapeHtml(group.role)}</span>
                 <div class="item-coop-step-group">${itemsHtml}</div>
               </div>`;
             }).join('');
